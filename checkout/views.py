@@ -49,13 +49,16 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
         
-        # Clear the cart
-        del request.session['cart']   
+            # Clear the cart
+            del request.session['cart']   
         
-        # Redirect to home
-        return redirect("/")
+             # Redirect to home
+            return redirect("/")
+        else:
+            messages.error(request, "There was an error charging your card")
     else:
-        messages.error(request, "There was an error charging your card")
+        payment_form = MakePaymentForm()
+        order_form = OrderForm()
         
     return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': settings.STRIPE_PUBLISHABLE})
                 
