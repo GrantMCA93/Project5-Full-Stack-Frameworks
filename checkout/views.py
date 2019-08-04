@@ -48,14 +48,13 @@ def checkout(request):
                 
             if customer.paid:
                 messages.error(request, "You have successfully paid")
-        
-            # Clear the cart
-            del request.session['cart']   
-        
-             # Redirect to home
-            return redirect("/")
+                request.session['cart'] = {}
+                return redirect(reverse('products'))
+            else:
+                messages.error(request, "Unable to take payment")
         else:
-            messages.error(request, "There was an error charging your card")
+            print(payment_form.errors)
+            messages.error(request, "We were unable to take a payment with that card!")
     else:
         payment_form = MakePaymentForm()
         order_form = OrderForm()
