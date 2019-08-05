@@ -51,6 +51,13 @@ def profile(request):
     return render(request, 'profile.html')
 
 
+@login_required
+def listings(request):
+    """A view that displays the listings page of a logged in user"""
+    return render(request, 'listings.html')
+
+
+
 def register(request):
     """A view that manages the registration form"""
     if request.method == 'POST':
