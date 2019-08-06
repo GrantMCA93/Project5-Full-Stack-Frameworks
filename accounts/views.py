@@ -56,6 +56,9 @@ def listings(request):
     """A view that displays the listings page of a logged in user"""
     return render(request, 'listings.html')
 
+def addhouse(request):
+    """A view that displays the addhouse page of a logged in user"""
+    return render(request, 'addhouse.html')
 
 
 def register(request):
