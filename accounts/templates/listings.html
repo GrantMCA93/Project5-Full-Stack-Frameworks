@@ -1,6 +1,32 @@
-<div class="container"  style="background-image: url('https://project5-full-stack-frameworks.s3.amazonaws.com/media/images/mansion-house.jpg'); background-repeat: no-repeat;background-size: cover;height: 500px; margin-bottom:10px;"></div>
-{% extends "base.html" %}
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
 {% block content %}
-    <h2>TEST!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+<div class="row row-flex">
+    {% for item in cart_items %}
+    <div class=panel-body>
+    <div class="">
+        
+        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+        <div>
+         <h3>{{ item.product.name }}</h3>
+                <p class="product-description">{{ item.product.description }}</p>
+
+    <!-- Message -->
+            {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+
 {% endblock %}

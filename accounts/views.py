@@ -51,7 +51,7 @@ def profile(request):
     return render(request, 'profile.html')
 
 
-@login_required
+
 def listings(request):
     """A view that displays the listings page of a logged in user"""
     return render(request, 'listings.html')

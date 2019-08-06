@@ -4,7 +4,7 @@ from .views import index, register, listings, profile, logout, login
 
 urlpatterns = [
     url(r'^register/$', register, name='register'),
-    url(r'^listings/$', profile, name='listings'),
+    url(r'^listings/$', listings, name='listings'),
     url(r'^profile/$', profile, name='profile'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^login/$', login, name='login'),
