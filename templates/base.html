@@ -14,6 +14,8 @@
     {% block head_js %}
     {% endblock head_js %}
 </head>
+<div class="col-xs-12" >
+    <div class="row row-flex">
 <body >
     <!-- Fixed masthead -->
     <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
@@ -57,16 +59,10 @@
             </div>
         </div>
     {% endif %}
-    <div class="container">
-        <div class="display">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q">
-                <button type="search">Search</button>
-            </form>
-        </div>
+
         {% block content %} {% endblock %}
-    </div>
-        <footer class="footer footer-mobile container">
+
+        <footer class="footer footer-mobile">
         <div class="col-sm-12">
             <h3 class="uppercase general-sub" style="margin-top: 0px; color:white;">Social links</h3>
             <ul class="list-inline social-links">
@@ -79,4 +75,6 @@
         </div>
     </footer>
 </body>
+</div>
+</div>
 </html>

@@ -5,3 +5,5 @@ __pycache__
 .c9/
 *.png
 media/
+static/font-awesome
+static/js

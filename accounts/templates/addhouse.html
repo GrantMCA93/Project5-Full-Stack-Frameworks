@@ -1,10 +1,62 @@
 {% extends 'base.html' %} {% block content %}
-<section>
+
+
+<section class="container">
     <div>
-        <div>
-            <h4>Property Title</h4>
-        </div>
+        <h4>User Listing</h4>
+    </div>
+    <div id="content-main">
+        <form enctype="multipart/form-data" action="" method="POST" id="product_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="If3vOxvyBjunOfht70HJ224cYPif4p6IQjPQg0LRN7JYwSv3Rgx7IrxRivOd7rWj"> {% csrf_token %}
+
+            <fieldset class="module aligned ">
+                <div class="form-row field-name">
+                    <div>
+                        <legend class="required" for="id_name">Property Name:</legend>
+                        <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_name">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-row field-description">
+                    <legend class="required" for="id_description">Address:</legend>
+                    <hr>
+
+                    <div class="row pt-5">
+                        <div class="col-md-12">
+                            <label for="address">Address</label><span style="color: red !important; display: inline; float: none;">*</span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-row field-price">
+                <div>
+                    <label class="required" for="id_price">Price:</label>
+                    <input type="number" name="price" step="0.01" required="" id="id_price">
+                </div>
+            </div>
+            <div class="form-row field-image">
+                <div>
+                    <label class="required" for="id_image">Image:</label>
+                    <input type="file" name="image" required="" id="id_image">
+                </div>
+            </div>
+            </fieldset>
+            <div class="submit-row">
+                <input type="submit" value="Save" class="default" name="_save">
+                <input type="submit" value="Save and add another" name="_addanother">
+                <input type="submit" value="Save and continue editing" name="_continue">
+            </div>
+            <script type="text/javascript" id="django-admin-form-add-constants" src="https://project5-full-stack-frameworks.s3.amazonaws.com/static/admin/js/change_form.js" data-model-name="product">
+            </script>
+            <script type="text/javascript" id="django-admin-prepopulated-fields-constants" src="https://project5-full-stack-frameworks.s3.amazonaws.com/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+            </script>
+
+    <input type="hidden" value="{{ user.id }}">
+    
+    </form>
     </div>
 </section>
+
+
 
 {% endblock %}
