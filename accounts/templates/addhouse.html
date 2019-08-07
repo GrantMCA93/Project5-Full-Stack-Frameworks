@@ -7,7 +7,7 @@
     </div>
     <div id="content-main">
         <form enctype="multipart/form-data" action="" method="POST" id="product_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="If3vOxvyBjunOfht70HJ224cYPif4p6IQjPQg0LRN7JYwSv3Rgx7IrxRivOd7rWj"> {% csrf_token %}
-
+            <!--- Property Name --->
             <fieldset class="module aligned ">
                 <div class="form-row field-name">
                     <div>
@@ -16,44 +16,99 @@
                     </div>
                 </div>
             </fieldset>
+            <!--- Property Address --->
             <fieldset>
                 <div class="form-row field-description">
-                    <legend class="required" for="id_description">Address:</legend>
-                    <hr>
-
-                    <div class="row pt-5">
-                        <div class="col-md-12">
+                    <legend class="required" for="id_address">Address:</legend>
+                    <div class="row">
+                        <div class="col-md-6">
                             <label for="address">Address</label><span style="color: red !important; display: inline; float: none;">*</span>
+                            <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_address">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="address">City</label><span style="color: red !important; display: inline; float: none;">*</span>
+                            <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_city">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="address">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span>
+                            <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_postcode">
                         </div>
                     </div>
                 </div>
             </fieldset>
-            <div class="form-row field-price">
-                <div>
-                    <label class="required" for="id_price">Price:</label>
-                    <input type="number" name="price" step="0.01" required="" id="id_price">
+            <!--- Property Information --->
+            <fieldset>
+                <legend class="required" for="id_propertyinfo">Property Info</legend>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="property">Property Price</label><span style="color: red !important; display: inline; float: none;">*</span>
+                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_propertyprice">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="property">Number of square foot</label><span style="color: red !important; display: inline; float: none;">*</span>
+                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_squarefoot">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="property">Number of Bedrooms</label><span style="color: red !important; display: inline; float: none;">*</span>
+                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_bedroomnumbers">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="property">Number of Bathrooms</label><span style="color: red !important; display: inline; float: none;">*</span>
+                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_bathroomnumbers">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="property">Number of Garages</label><span style="color: red !important; display: inline; float: none;">*</span>
+                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_garagenumbers">
+                    </div>
                 </div>
-            </div>
-            <div class="form-row field-image">
-                <div>
-                    <label class="required" for="id_image">Image:</label>
-                    <input type="file" name="image" required="" id="id_image">
-                </div>
-            </div>
-            </fieldset>
-            <div class="submit-row">
-                <input type="submit" value="Save" class="default" name="_save">
-                <input type="submit" value="Save and add another" name="_addanother">
-                <input type="submit" value="Save and continue editing" name="_continue">
-            </div>
-            <script type="text/javascript" id="django-admin-form-add-constants" src="https://project5-full-stack-frameworks.s3.amazonaws.com/static/admin/js/change_form.js" data-model-name="product">
-            </script>
-            <script type="text/javascript" id="django-admin-prepopulated-fields-constants" src="https://project5-full-stack-frameworks.s3.amazonaws.com/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
-            </script>
+    </div>
+    </fieldset>
+    <!--- Property Images --->
+    <fieldset>
+        <legend class="required" for="id_propertyimages">Property Images</legend>
+        <div class="row">
+            <label class="col-md-12" class="required" for="id_image">Image:</label>
+            <input class="col-md-6" type="file" name="image" required="" id="id_image">
+            <input class="col-md-6" type="file" name="image" id="id_image">
+            <input class="col-md-6" type="file" name="image" id="id_image">
+            <input class="col-md-6" type="file" name="image" id="id_image">
+            <input class="col-md-6" type="file" name="image" id="id_image">
+            <input class="col-md-6" type="file" name="image" id="id_image">
+        </div>
+    </fieldset>
+        <!--- Property Description --->
+    <fieldset>
+        <legend class="required" for="id_propertydescription">Property Description</legend>
+        <div class="row">
+            <textarea type="textarea" name="description" class="col-md-12" class="required" for="id_image" /></textarea>
 
-    <input type="hidden" value="{{ user.id }}">
-    
+        </div>
+    </fieldset>
+
+
+
+
+    <hr>
+    <div>
+
+				<button type="submit" class="btn btn-success float-right">Preview <i class="fas fa-angle-double-right"></i></button>				
+
+				<!-- Store user ID -->
+				<input type="hidden" name="seller" value="{{ user.id }}">
+    </div>
     </form>
+        <div class="submit-row">
+            <input type="submit" value="Save" class="default" name="_save">
+            <input type="submit" value="Save and add another" name="_addanother">
+            <input type="submit" value="Save and continue editing" name="_continue">
+        </div>
+        <script type="text/javascript" id="django-admin-form-add-constants" src="https://project5-full-stack-frameworks.s3.amazonaws.com/static/admin/js/change_form.js" data-model-name="product">
+        </script>
+        <script type="text/javascript" id="django-admin-prepopulated-fields-constants" src="https://project5-full-stack-frameworks.s3.amazonaws.com/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+        </script>
+
+        <input type="hidden" value="{{ user.id }}">
+
     </div>
 </section>
 

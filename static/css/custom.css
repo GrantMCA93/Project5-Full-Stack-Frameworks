@@ -36,6 +36,14 @@ a {
     text-decoration-color: initial;
 }
 
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 15px;
+}
+
 .icon-bar {
     background-color: #fff;
 }
