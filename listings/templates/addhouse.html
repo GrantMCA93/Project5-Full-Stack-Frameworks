@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap4 %} 
+{% block content %}
 
 
 <section class="container">
@@ -7,12 +10,13 @@
     </div>
     <div id="content-main">
         <form enctype="multipart/form-data" action="" method="POST" id="product_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="If3vOxvyBjunOfht70HJ224cYPif4p6IQjPQg0LRN7JYwSv3Rgx7IrxRivOd7rWj"> {% csrf_token %}
+           {% csrf_token %}
             <!--- Property Name --->
             <fieldset class="module aligned ">
                 <div class="form-row field-name">
                     <div>
                         <legend class="required" for="id_name">Property Name:</legend>
-                        <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_name">
+                        {% bootstrap_field placeholder='' show_label=False field=form.title %}
                     </div>
                 </div>
             </fieldset>
@@ -33,6 +37,10 @@
                             <label for="address">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span>
                             <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_postcode">
                         </div>
+						<div class="col-md-6">
+							<label for="zipcode">Zipcode</label><span style="color: red !important; display: inline; float: none;">*</span>
+							{% bootstrap_field placeholder='' show_label=False field=form.zipcode %}
+						</div>                        
                     </div>
                 </div>
             </fieldset>

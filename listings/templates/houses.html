@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/houses.css' %}">
+{% endblock css %}
+{% block header_content %}
+{% include "partials/_search_form.html" %}
+{% endblock header_content %}
+{% block main_content %}
+{% include "partials/_small_listing.html" %}
+{% endblock main_content %}

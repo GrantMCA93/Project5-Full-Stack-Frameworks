@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'checkout',
-    'storages'
+    'storages',
+    'bootstrap4',
+    'listings.apps.ListingsConfig',
 ]
 
 MIDDLEWARE = [
