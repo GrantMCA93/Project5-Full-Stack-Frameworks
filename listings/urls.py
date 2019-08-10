@@ -1,8 +1,7 @@
 from django.urls import path
-from listings import views as listings
+from listings import views
 
 urlpatterns = [
-    path('', listings.houses, name="houses"),
-    path('house/addhouse/<int:user_id>', listings.addhouse, name="addhouse"),
-
+    path('', views.houses, name="houses"),
+    path('house/addhouse/<int:user_id>', views.addhouse, name="addhouse"),
 ]

@@ -9,7 +9,7 @@
         <h4>User Listing</h4>
     </div>
     <div id="content-main">
-        <form enctype="multipart/form-data" action="" method="POST" id="product_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="If3vOxvyBjunOfht70HJ224cYPif4p6IQjPQg0LRN7JYwSv3Rgx7IrxRivOd7rWj"> {% csrf_token %}
+        <form enctype="multipart/form-data" action="" method="POST" >
            {% csrf_token %}
             <!--- Property Name --->
             <fieldset class="module aligned ">
@@ -27,16 +27,16 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label for="address">Address</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_address">
-                        </div>
+                            {% bootstrap_field placeholder='' show_label=False field=form.address %}                        
+                            </div>
                         <div class="col-md-6">
                             <label for="address">City</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_city">
+                            {% bootstrap_field placeholder='' show_label=False field=form.city %}
                         </div>
-                        <div class="col-md-6">
-                            <label for="address">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span>
-                            <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_postcode">
-                        </div>
+                        <!--<div class="col-md-6">-->
+                        <!--    <label for="address">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span>-->
+                        <!--    <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_postcode">-->
+                        <!--</div>-->
 						<div class="col-md-6">
 							<label for="zipcode">Zipcode</label><span style="color: red !important; display: inline; float: none;">*</span>
 							{% bootstrap_field placeholder='' show_label=False field=form.zipcode %}
@@ -50,23 +50,23 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="property">Property Price</label><span style="color: red !important; display: inline; float: none;">*</span>
-                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_propertyprice">
+                        {% bootstrap_field placeholder='' show_label=False field=form.price %}
                     </div>
                     <div class="col-md-6">
                         <label for="property">Number of square foot</label><span style="color: red !important; display: inline; float: none;">*</span>
-                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_squarefoot">
+                        {% bootstrap_field placeholder='' show_label=False field=form.square_feet %}
                     </div>
                     <div class="col-md-6">
                         <label for="property">Number of Bedrooms</label><span style="color: red !important; display: inline; float: none;">*</span>
-                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_bedroomnumbers">
+                        {% bootstrap_field placeholder='' show_label=False field=form.bedrooms %}
                     </div>
                     <div class="col-md-6">
                         <label for="property">Number of Bathrooms</label><span style="color: red !important; display: inline; float: none;">*</span>
-                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_bathroomnumbers">
+                        {% bootstrap_field placeholder='' show_label=False field=form.bathrooms %}
                     </div>
                     <div class="col-md-6">
                         <label for="property">Number of Garages</label><span style="color: red !important; display: inline; float: none;">*</span>
-                        <input type="number" name="name" class="vTextField" maxlength="254" required="" id="id_garagenumbers">
+                        {% bootstrap_field placeholder='' show_label=False field=form.garage %}
                     </div>
                 </div>
     </div>
@@ -74,48 +74,52 @@
     <!--- Property Images --->
     <fieldset>
         <legend class="required" for="id_propertyimages">Property Images</legend>
-        <div class="row">
-            <label class="col-md-12" class="required" for="id_image">Image:</label>
-            <input class="col-md-6" type="file" name="image" required="" id="id_image">
-            <input class="col-md-6" type="file" name="image" id="id_image">
-            <input class="col-md-6" type="file" name="image" id="id_image">
-            <input class="col-md-6" type="file" name="image" id="id_image">
-            <input class="col-md-6" type="file" name="image" id="id_image">
-            <input class="col-md-6" type="file" name="image" id="id_image">
-        </div>
+		<div class="row">
+						<div class="col-md-6">
+							<div class="row justify-content-around">
+								<label for="main_img">Image 1<span style="color: red !important; display: inline; float: none;">*</span></label>
+								{% bootstrap_field layout='horizontal' placeholder='' show_label=False field=form.main_img %}
+							</div>
+							<div class="row justify-content-around">
+								<label for="main_img">Image 2</label>
+								{% bootstrap_field placeholder='' show_label=False field=form.img_1 %}
+							</div>
+							<div class="row justify-content-around">
+								<label for="main_img">Image 3</label>
+								{% bootstrap_field placeholder='' show_label=False field=form.img_2 %}
+							</div>							
+						</div>
+						<div class="col-md-6">	
+							<div class="row justify-content-around">
+								<label for="main_img">Image 4</label>
+								{% bootstrap_field placeholder='' show_label=False field=form.img_3 %}
+							</div>
+							<div class="row justify-content-around">
+								<label for="main_img">Image 5</label>
+								{% bootstrap_field placeholder='' show_label=False field=form.img_4 %}
+							</div>
+							<div class="row justify-content-around">
+								<label for="main_img">Image 6</label>
+								{% bootstrap_field placeholder='' show_label=False field=form.img_5 %}
+							</div>
+						</div>
+					</div>
     </fieldset>
         <!--- Property Description --->
     <fieldset>
         <legend class="required" for="id_propertydescription">Property Description</legend>
         <div class="row">
-            <textarea type="textarea" name="description" class="col-md-12" class="required" for="id_image" /></textarea>
+            {% bootstrap_field placeholder='' show_label=False field=form.description %}
 
         </div>
     </fieldset>
-
-
-
-
-    <hr>
-    <div>
-
+				{% buttons %}
 				<button type="submit" class="btn btn-success float-right">Preview <i class="fas fa-angle-double-right"></i></button>				
-
+				{% endbuttons %}
 				<!-- Store user ID -->
 				<input type="hidden" name="seller" value="{{ user.id }}">
-    </div>
     </form>
-        <div class="submit-row">
-            <input type="submit" value="Save" class="default" name="_save">
-            <input type="submit" value="Save and add another" name="_addanother">
-            <input type="submit" value="Save and continue editing" name="_continue">
-        </div>
-        <script type="text/javascript" id="django-admin-form-add-constants" src="https://project5-full-stack-frameworks.s3.amazonaws.com/static/admin/js/change_form.js" data-model-name="product">
-        </script>
-        <script type="text/javascript" id="django-admin-prepopulated-fields-constants" src="https://project5-full-stack-frameworks.s3.amazonaws.com/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
-        </script>
 
-        <input type="hidden" value="{{ user.id }}">
 
     </div>
 </section>

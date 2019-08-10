@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+
+{% block page_header %} {% endblock page_header %}
+
+{% block main_content %}
+
+{% include "partials/_progress_bar.html" %}
+
+{% include "partials/_large_listing.html" %}
+
+{% block btns %}
+<!-- Contact / Edit -->
+<section class="container">
+	<div class="row justify-content-around py-3">
+		<div class="col-6">
+			<a href="{% url 'addhouse' user.id %}" class="btn btn-warning float-left"><i class="fas fa-angle-double-left"></i> Back</a>
+		</div>
+
+	</div>
+</section>
+{% endblock btns %}
+{% endblock main_content %}
+{% block js %}
+<!-- Light box -->
+<script src="{% static 'js/vendor/lightbox.min.js' %}"></script>
+<!-- Google Maps -->
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHHyac2SiOYPNYxXMK7rqJjnB8nCaaxE&callback=initMap"></script>
+<!-- Custom JS -->
+<script src="{% static 'js/custom/house.js' %}"></script>
+{% endblock js %}
