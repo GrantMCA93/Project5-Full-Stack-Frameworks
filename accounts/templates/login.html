@@ -1,9 +1,13 @@
-{% extends "base.html" %}
-{% load bootstrap_tags %}
-{% block content %}
-<h2>test!</h2>
-<form method="post" >
-    <button>Log in</button>
-</form>
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+
+<div>
+    <form method="post" style="padding: 30px; width:100%;">
+        {% csrf_token %}
+         {{  form | as_bootstrap }}
+        <div>
+            <button>Log in</button>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

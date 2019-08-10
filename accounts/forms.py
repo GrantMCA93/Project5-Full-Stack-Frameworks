@@ -6,8 +6,9 @@ from django.core.exceptions import ValidationError
 from .models import UserProfile
 
 class UserLoginForm(forms.Form):
-    username_or_email = forms.CharField()
+    username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+
     
 class UserProfileForm(UserCreationForm):
     """
