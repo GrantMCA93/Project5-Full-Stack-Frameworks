@@ -1,33 +1,70 @@
-{% extends "base.html" %}
-{% load static from staticfiles %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/preview_house.css' %}">
+{% endblock css %}
 
-
-{% block page_header %} {% endblock page_header %}
-
-{% block main_content %}
-
-{% include "partials/_progress_bar.html" %}
-
-{% include "partials/_large_listing.html" %}
-
-{% block btns %}
-<!-- Contact / Edit -->
 <section class="container">
-	<div class="row justify-content-around py-3">
-		<div class="col-6">
-			<a href="{% url 'addhouse' user.id %}" class="btn btn-warning float-left"><i class="fas fa-angle-double-left"></i> Back</a>
+	<div class="row">
+		<h2>{{ page_title }}</h2>
+		<hr>
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="col-md-6">
+					<img class="card-img" src="{{ house.main_img.url }}" alt="{{ house.title }}" height="200px" />
+					<h2>
+						<span>
+					&#36; {{ house.price }}
+					</span>
+					</h2>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div>
+					<div>
+						<h4>{{ house.title }}</h4>
+						<p>
+							{{house.city}} {{house.state}}, {{house.zipcode}}
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<a href="{% url 'search_by_links' 'square_feet' %}">
+						<i></i> sqft: {{house.square_feet}}
+					</a>
+				</div>
+				<div class="col-xs-6">
+					<a href="{% url 'search_by_links' 'garage' %}">
+						<i></i> Garage: {{house.garage}}
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-6">
+					<a href="{% url 'search_by_links' 'bedrooms' %}">
+						<i></i> Bedrooms: {{house.bedrooms}}
+					</a>
+				</div>
+				<div class="col-xs-6">
+					<a href="{% url 'search_by_links' 'bathrooms' %}">
+						<i></i> Bathrooms: {{house.bathrooms}}
+					</a>
+				</div>
+			</div>
+			<hr/>
+			<div class="row">
+				<div class="col-xs-6">
+					<a href="{% url 'houses' %}">
+						<i></i> {{ house.list_date | date }}
+					</a>
+				</div>
+				<div class="col-xs-6">
+					<a href="{% url 'search_by_user' house.seller.id %}">
+						<i></i> {{house.bathrooms}}{{ house.seller | title }}
+				</div>
+			</div>
 		</div>
-
 	</div>
 </section>
-{% endblock btns %}
-{% endblock main_content %}
-{% block js %}
-<!-- Light box -->
-<script src="{% static 'js/vendor/lightbox.min.js' %}"></script>
-<!-- Google Maps -->
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHHyac2SiOYPNYxXMK7rqJjnB8nCaaxE&callback=initMap"></script>
-<!-- Custom JS -->
-<script src="{% static 'js/custom/house.js' %}"></script>
-{% endblock js %}
+{% endblock %}
