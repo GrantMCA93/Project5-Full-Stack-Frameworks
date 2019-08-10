@@ -1,0 +1,35 @@
+<section class="container py-5">
+	<h2 class="text-left">Full address</h2>
+	<hr class="mb-5" />
+	<!-- Google map and Seller -->
+	<div class="col-12">
+		<div class="row">
+			<div class=" col-md-6 card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-12 my-2">
+							<p class="my-2"><span class="font-weight-bold">Address:</span> {{ house.address }}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 my-2">
+							<p class="my-2"><span class="font-weight-bold">City:</span> {{ house.city }}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 my-2">
+							<p class="my-2"><span class="font-weight-bold">Zipcode:</span> {{ house.zipcode }}</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 my-2">
+							<p class="my-2"><span class="font-weight-bold">State:</span> {{ house.state }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Google maps -->
+			<div id="google-map" class=" col-md-6 card"></div>
+		</div>
+	</div>
+</section>

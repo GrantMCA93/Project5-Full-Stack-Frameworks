@@ -1,7 +1,5 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/custom/preview_house.css' %}">
-{% endblock css %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/preview_house.css' %}"> {% endblock css %}
 
 <section class="container">
 	<div class="row">
@@ -65,6 +63,106 @@
 				</div>
 			</div>
 		</div>
+
+	{% if house.img_1 or house.img_2 or house.img_3 or house.img_4 or house.img_5 or house.img_6 %}
+<div class="col-xs-12">
+	<div class="row">
+		{% if house.img_1 %}
+		<div class="col-md-2">
+			<a href="{{ house.img_1.url }}">
+				<img src="{{ house.img_1.url }}">
+			</a>
+				</div>
+				{% endif %} {% if house.img_2 %}
+				<div class="col-md-2">
+					<a href="{{ house.img_2.url }}">
+				<img src="{{ house.img_2.url }}">
+			</a>
+				</div>
+				{% endif %} {% if house.img_3 %}
+				<div class="col-md-2">
+					<a href="{{ house.img_3.url }}">
+				<img src="{{ house.img_3.url }}">
+			</a>
+				</div>
+				{% endif %} {% if house.img_4 %}
+				<div class="col-md-2">
+					<a href="{{ house.img_4.url }}">
+				<img src="{{ house.img_4.url }}">
+			</a>
+				</div>
+				{% endif %} {% if house.img_5 %}
+				<div class="col-md-2">
+					<a href="{{ house.img_5.url }}">
+				<img src="{{ house.img_5.url }}">
+			</a>
+				</div>
+				{% endif %} {% if house.img_6 %}
+				<div class="col-md-2">
+					<a href="{{ house.img_6.url }}">
+				<img src="{{ house.img_6.url }}">
+			</a>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		{% endif %}
 	</div>
 </section>
+<section class="container">
+	<h2>Proerty Full Address</h2>	
+<hr/>
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="col-md-6">
+			<div class="row">
+				<div class="col-xs-12">
+					<p class=""><span>Address:</span> {{ house.address }}</p>
+				</div>
+			</div>
+						<div class="row">
+				<div class="col-xs-12">
+					<p class=""><span>City:</span> {{ house.city }}</p>
+				</div>
+			</div>
+						<div class="row">
+				<div class="col-xs-12">
+					<p class=""><span>Zipcode:</span> {{ house.zipcode }}</p>
+				</div>
+			</div>
+						<div class="row">
+				<div class="col-xs-12">
+					<p class=""><span>State:</span> {{ house.state }}</p>
+				</div>
+			</div>
+		</div>
+			<!-- Google maps -->
+			<div id="google-map" class=" col-md-6 card"></div>
+	</div>
+</section>
+<!-- Description of House -->
+<section class="container">
+	<h2 class="">Property Description</h2>
+	<hr/>
+	<div class="row">
+		<div class="coll-md-11">
+			<p class="">
+				{{ house.description }}
+			</p>
+		</div>
+	</div>
+</section>
+<!-- Contact or Edit -->
+<section class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="{% url 'addhouse' user.id %}"<i></i> Back</a>
+		</div>
+		<div class="col-xs-6">
+			<a href="{% url 'pay_fee' user.id house.id %}">Pay Fee <i></i></a>
+		</div>
+	</div>
+</section>
+
+
 {% endblock %}
