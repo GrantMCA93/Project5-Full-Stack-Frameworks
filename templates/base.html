@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom/footer.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %} {% endblock head_js %}
@@ -21,7 +22,8 @@
             <!-- Fixed masthead -->
             {% block nav %}
             <!-- Navigation -->
-            {% include "partials/_navbar.html" %} {% endblock nav %} {% if messages %}
+            {% include "partials/_navbar.html" %} {% endblock nav %}
+            {% if messages %}
             <div class="alert alert-success"  style="width: 100%;">
                 <div class="messages">
                     {% for message in messages %} {{ message }} {% endfor %}
@@ -29,18 +31,8 @@
             </div>
             {% endif %} {% block content %} {% endblock %}
 
-            <footer class="footer footer-mobile">
-                <div class="col-sm-12">
-                    <h3 class="uppercase general-sub" style="margin-top: 0px; color:white;">Social links</h3>
-                    <ul class="list-inline social-links">
-                        <li><a target="_blank" href="#"><i class="fa fa-facebook footer-icon-color"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-twitter footer-icon-color"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-linkedin footer-icon-color"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-instagram footer-icon-color"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-youtube footer-icon-color"></i></a></li>
-                    </ul>
-                </div>
-            </footer>
+
+{% include "partials/footer.html" %}
         </body>
     </div>
 </div>
