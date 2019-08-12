@@ -1,5 +1,79 @@
 {% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %}
 
-<h2>test</h2>
+
+<section id="pay_fee" class="container py-5">
+	<div class="row justify-content-center py-5">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-header">
+					<p class="text-center font-weight-bold">Please enter your card details below:</p>
+					
+					<div id="stripe-error-message" class="col-12 text-center text-danger font-weight-bold">
+						<hr>
+					</div>
+				</div>
+				<div class="card-body">
+					<form method="POST" id="payment-form" class="py-3">
+						<div class="row">
+							<div class="col-12">
+								{% bootstrap_field placeholder='' field=form.credit_card_number %}
+							</div>
+							<div class="col-4">
+								{% bootstrap_field placeholder='' field=form.expiry_month %}
+							</div>
+							<div class="col-4">
+								{% bootstrap_field placeholder='' field=form.expiry_year %}
+							</div>
+							<div class="col-4">
+								{% bootstrap_field placeholder='' field=form.cvv %}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								{% csrf_token %}
+								{% bootstrap_field field=form.stripe_id %}
+								{% buttons %}
+								<button id="validate-card-btn" type="submit" class="btn btn-success btn-block">Pay Fee</button>
+								{% endbuttons %}
+							</div>
+						</div>
+						<div class="row text-center">
+							<div class="col-12">
+								<p class="font-weight-bold text-danger">We will charge you $10!</p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-10">
+			<div class="card">
+				<div class="card-header">
+					<p class="text-center font-weight-bold">You will be charged for below listing:</p>
+				</div>
+				<div class="card-body">
+					{% include "partials/_large_listing.html" %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
 {% endblock %}
+
+<!-- Stripe JS -->
+<script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+<script type="text/javascript">
+	//<![CDATA[
+	Stripe.publishableKey = '{{ publishable }}';
+	//]]>
+</script>
+<script type="text/javascript" src="{% static 'js/vendor/stripe.js' %}"></script>
+<!-- Light box -->
+<script src="{% static 'js/vendor/lightbox.min.js' %}"></script>
+<!-- Google Maps -->
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDHHyac2SiOYPNYxXMK7rqJjnB8nCaaxE&callback=initMap"></script>
+<!-- Custom JS -->
