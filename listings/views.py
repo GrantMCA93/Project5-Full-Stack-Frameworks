@@ -170,7 +170,7 @@ def pay_fee(request, user_id, house_id):
 
 		else:
 			messages.error(
-				request, "We were unable to take a payment with that card!")
+				request, "We were unable to take a payment with that card! listing")
 	args = {
 		'house': house_data,
 		'page_title': house_data.title,

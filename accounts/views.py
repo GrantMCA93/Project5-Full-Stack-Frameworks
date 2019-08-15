@@ -161,3 +161,27 @@ def addhouse(request, user_id):
     return render(request, "addhouse.html", args)
     
 
+@login_required
+def edit_profile(request):
+    """
+    View to let user to edit his profile data
+    """
+    if request.method == 'POST':
+        user_form = EditUserForm(request.POST, instance=request.user)
+        profile_form = EditProfileForm(
+            request.POST, instance=request.user.userprofile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('profile')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        user_form = EditUserForm(instance=request.user)
+        profile_form = EditProfileForm(instance=request.user.userprofile)
+    args = {
+        "user_form": user_form,
+        "profile_form": profile_form,
+    }
+    return render(request, "edit_profile.html", args)

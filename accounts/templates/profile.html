@@ -1,5 +1,140 @@
-{% extends "base.html" %}
-{% block content %}
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+
+   
+<section class="container">
+	<div class="row">
+		<div class="card col-xs-12">
+			<h1 class="">Welcome {{ user.username|title }}</h1>
+			<p class="">
+				<a href="{% url 'edit_profile' %}">
+					<i class="fas fa-user-edit"></i>
+					<span class="text-success">Edit your profile</span>
+				</a>
+			</p>
+			<div>
+				<div class="row">
+					{% if user.img %}
+					<div class="col-md-6">
+						<img  src="{{ user.img.url }}" alt="Profile  picture">
+					</div>
+					{% else %}
+					<div class="col-md-6">
+						<img  src="/media/img/profile-avatar.jpg" alt="Profile  picture">
+					</div>
+					{% endif %}
+					<div class="col-md-6">
+						<ul class="">
+							<li class="">
+								<span class="">Profile name:</span> {{ user.username|title }}
+								{% if user.first_name or user.last_name %}
+								  <hr>
+								  {% if user.first_name and user.last_name %}
+									<span class="">First name:</span> {{ user.first_name|title }} | <span class="font-weight-bold">Last name:</span> {{ user.last_name|title }}
+									{% else %}
+									{% if user.first_name %}
+									<span class="">First name:</span> {{ user.first_name|title }}
+									{% endif %}
+									{% if user.last_name %}
+									<span class="">Last name:</span> {{ user.last_name|title }}
+									{% endif %}
+								  {% endif %}
+								{% endif %}
+							</li>
+							{% if user.email %}
+							<li class="">
+								<span class="">Your email:</span> {{ user.email }}
+							</li>
+							{% else %}
+							<li class="">
+								<span class="">Your email:</span> You did not provide your email
+								address.
+							</li>
+							{% endif %}
+							{% if user_profile.phone %}
+							<li class="">
+								<span class="">Your phone:</span> {{ user_profile.phone }}
+							</li>
+							{% else %}
+							<li class="">
+								<span class="">Your phone:</span> You did not provide your phone number.
+							</li>
+							{% endif %}
+							<li class="">
+								<span class="">Joined:</span> {{ user.date_joined }}
+							</li>
+							{% if user_profile.description %}
+							<li class="">
+								<span class="">Description:</span>
+							</li>
+							{{ user_profile.description }}
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<hr>
+	<div class="row">
+		<div class="card col--xs12">
+			{% if listings %}
+			<h4 class="">Your listings:</h4>
+			<div class="">
+				<div id="listings" class="row">
+					{% for house in listings %}
+					<div class="col-md-6 col-lg-4 mb-4">
+						<div class="card">
+							<img class="" src="{{ house.main_img.url }}" alt="{{ house.title }}" />
+							<div class="">
+								<h2>
+									<span class="">£{{ house.price }}</span>
+								</h2>
+							</div>
+							<div class="">
+								<div class="">
+									<h4 class="pt-3">{{ house.title }}</h4>
+									<p> <i class="fas fa-map-marker"></i> {{ house.city }}
+										{{ house.state }}, {{ house.zipcode }}
+									</p>
+								</div>
+								<hr />
+								<div class="">
+									<div>
+										<img class="card-img-top" src="{{ house.main_img.url }}" alt="{{ house.title }}" />										
+									</div>
+									<div class="body container">
+										<div class="row">
+										{% if house.is_published %}
+										  <p class="">
+											  Appoved!
+										  </p>
+										{% else %}
+										 <p class="">
+											  Waiting for approval!
+										  </p>
+										{% endif %}
+										</div>
+										<div class="row">					
+											<a  class="btn btn-outline-success" href="{% url 'house' house.id %}"> <span class="text-light"><i class="fas fa-eye"></i></span> View listing</a>
+											<a  class="btn btn-outline-secondary" href="{% url 'view_invoice' house.id %}" target="_blank"><span class="text-light"><i class="fas fa-file-pdf"></i></span> Generate invoice</a>
+										</div>											
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
+					{% endfor %}
+				</div>
+			</div>
+			{% else %}
+			<h5 class="">You did not add any listings yet.</h5>
+			<p class="">
+				<a href="{% url 'addhouse' user.id %}" class="">
+					Add one now!
+				</a>
+			</p>
+			{% endif %}
+		</div>
+	</div>
+			</section>
 {% endblock %}
