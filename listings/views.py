@@ -176,39 +176,4 @@ def pay_fee(request, user_id, house_id):
 	return render(request, "pay_fee.html", args)
 
     
-	
-def search_by_links(request, key):
-    """ 
-    Route to let user to search by clicking on links in description
-    """
-
-    listings = Listing.objects.all().filter(
-
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
-
-    args = {
-        "listings": paged_listings,
-        "key": key
-    }
-    return render(request, "houses.html", args)
-
-
-def search_by_user(request, user_id):
-    """ 
-    Route to let user to search by clicking on links in description
-    """
-
-    listings = Listing.objects.all().filter(
-        is_published=True, seller=user_id).order_by('-list_date')
-
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
-
-    args = {
-        "listings": paged_listings
-    }
-    return render(request, "houses.html", args)
 
