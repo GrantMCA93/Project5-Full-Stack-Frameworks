@@ -60,10 +60,11 @@
 				<div class="col-xs-6">
 					<a href="{% url 'search_by_user' house.seller.id %}">
 						<i></i> {{house.bathrooms}}{{ house.seller | title }}
+						</a>
 				</div>
 			</div>
 		</div>
-
+</div>
 	{% if house.img_1 or house.img_2 or house.img_3 or house.img_4 or house.img_5 or house.img_6 %}
 <div class="col-xs-12">
 	<div class="row">
@@ -107,39 +108,45 @@
 			</div>
 		</div>
 		{% endif %}
-	</div>
+	
 </section>
 <section class="container">
-	<h2>Property Full Address</h2>	
-<hr/>
-	<div class="col-xs-12">
-		<div class="row">
-			<div class="col-md-6">
-			<div class="row">
-				<div class="col-xs-12">
-					<p class=""><span>Address:</span> {{ house.address }}</p>
-				</div>
-			</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>Property Full Address</h2>
+			<hr/>
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="col-md-6">
 						<div class="row">
-				<div class="col-xs-12">
-					<p class=""><span>City:</span> {{ house.city }}</p>
-				</div>
-			</div>
+							<div class="col-xs-12">
+								<p class=""><span>Address:</span> {{ house.address }}</p>
+							</div>
+						</div>
 						<div class="row">
-				<div class="col-xs-12">
-					<p class=""><span>Zipcode:</span> {{ house.zipcode }}</p>
-				</div>
-			</div>
+							<div class="col-xs-12">
+								<p class=""><span>City:</span> {{ house.city }}</p>
+							</div>
+						</div>
 						<div class="row">
-				<div class="col-xs-12">
-					<p class=""><span>State:</span> {{ house.state }}</p>
+							<div class="col-xs-12">
+								<p class=""><span>Zipcode:</span> {{ house.zipcode }}</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<p class=""><span>State:</span> {{ house.state }}</p>
+							</div>
+						</div>
+					</div>
+					<!-- Google maps -->
+					<div id="google-map" class=" col-md-6 card"></div>
 				</div>
 			</div>
 		</div>
-			<!-- Google maps -->
-			<div id="google-map" class=" col-md-6 card"></div>
 	</div>
 </section>
+
 <!-- Description of House -->
 <section class="container">
 	<h2 class="">Property Description</h2>
@@ -153,12 +160,12 @@
 	</div>
 </section>
 <!-- Contact or Edit -->
-<section class="container">
+<section class="container" style="text-align: center;">
 	<div class="row">
-		<div class="col-xs-6">
-			<a href="{% url 'addhouse' user.id %}"<i></i> Back</a>
+		<div class="col-xs-6 btn btn-success">
+			<a href="{% url 'addhouse' user.id %}" <i class="fas fa-angle-double-right"></i> Back</a>
 		</div>
-		<div class="col-xs-6">
+		<div class="col-xs-6 btn btn-success">
 			<a href="{% url 'pay_fee' user.id house.id %}">Pay Fee <i></i></a>
 		</div>
 	</div>

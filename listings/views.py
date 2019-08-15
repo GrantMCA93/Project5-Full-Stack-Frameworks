@@ -125,6 +125,7 @@ def pay_fee(request, user_id, house_id):
 		return redirect('index')
 	if request.method == "POST":
 		payment_form = PayFeeForm(request.POST)
+		print(payment_form.errors)
 		if payment_form.is_valid():
 			try:
 				customer = stripe.Charge.create(
@@ -151,8 +152,10 @@ def pay_fee(request, user_id, house_id):
 					params = {
 						"body": "Thank you",
 						"to": [user.email],
+						"subject": f"Invoice for {house_data.title}",
 						"user": user,
 						"house": house_data,
+						"file_name": f"{house_data.id}",
 					}
 					
 					messages.success(request, "Invoice has been emailed to you")
@@ -164,16 +167,59 @@ def pay_fee(request, user_id, house_id):
 				messages.error(request, "Unable to take payment")
 
 		else:
+		    
 			messages.error(
-				request, "We were unable to take a payment with that card! listing")
-	args = {
+				request, "We were unable to take a payment with that card!")
+	    
+	else:
+	    payment_form = PayFeeForm()
+	    
+
+	return render(request, "pay_fee.html", {
 		'house': house_data,
 		'page_title': house_data.title,
 		'form': PayFeeForm,
+		'payment_form': payment_form,
 		'publishable': settings.STRIPE_PUBLISHABLE
-	}
-
-	return render(request, "pay_fee.html", args)
+	})
 
     
+	
+
+def search_by_links(request, key):
+    """ 
+    Route to let user to search by clicking on links in description
+    """
+
+    listings = Listing.objects.all().filter(
+        is_published=True).order_by(f'-{key}')
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    args = {
+        "listings": paged_listings,
+        "key": key
+    }
+    return render(request, "houses.html", args)
+
+
+def search_by_user(request, user_id):
+    """ 
+    Route to let user to search by clicking on links in description
+    """
+
+    listings = Listing.objects.all().filter(
+        is_published=True, seller=user_id).order_by('-list_date')
+
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+
+    args = {
+        "listings": paged_listings
+    }
+    return render(request, "houses.html", args)
+
 

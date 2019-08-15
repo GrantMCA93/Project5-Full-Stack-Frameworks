@@ -3,33 +3,33 @@
 
 <section id="pay_fee" class="container py-5">
 	<div class="row justify-content-center py-5">
-		<div class="col-md-6">
+		<div class="col-xs-md-6">
 			<div class="card">
 				<div class="card-header">
 					<p class="text-center font-weight-bold">Please enter your card details below:</p>
 					
-					<div id="stripe-error-message" class="col-12 text-center text-danger font-weight-bold">
+					<div id="stripe-error-message" class="col-xs-12 text-center text-danger font-weight-bold">
 						<hr>
 					</div>
 				</div>
 				<div class="card-body">
 					<form method="POST" id="payment-form" class="py-3">
 						<div class="row">
-							<div class="col-12">
+							<div class="col-xs-12">
 								{% bootstrap_field placeholder='' field=form.credit_card_number %}
 							</div>
-							<div class="col-4">
+							<div class="col-xs-4">
 								{% bootstrap_field placeholder='' field=form.expiry_month %}
 							</div>
-							<div class="col-4">
+							<div class="col-xs-4">
 								{% bootstrap_field placeholder='' field=form.expiry_year %}
 							</div>
-							<div class="col-4">
+							<div class="col-xs-4">
 								{% bootstrap_field placeholder='' field=form.cvv %}
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-12">
+							<div class="col-xs-12">
 								{% csrf_token %}
 								{% bootstrap_field field=form.stripe_id %}
 								{% buttons %}
@@ -38,7 +38,7 @@
 							</div>
 						</div>
 						<div class="row text-center">
-							<div class="col-12">
+							<div class="col-xs-12">
 								<p class="font-weight-bold text-danger">We will charge you $10!</p>
 							</div>
 						</div>
@@ -48,7 +48,7 @@
 		</div>
 	</div>
 	<div class="row justify-content-center">
-		<div class="col-10">
+		<div class="col-xs-10">
 			<div class="card">
 				<div class="card-header">
 					<p class="text-center font-weight-bold">You will be charged for below listing:</p>
