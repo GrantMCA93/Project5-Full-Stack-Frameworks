@@ -183,7 +183,6 @@ def search_by_links(request, key):
     """
 
     listings = Listing.objects.all().filter(
-        is_published=True).order_by(f'-{key}')
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
