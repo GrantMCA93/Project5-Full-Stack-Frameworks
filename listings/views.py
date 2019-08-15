@@ -154,12 +154,9 @@ def pay_fee(request, user_id, house_id):
 						"subject": f"Invoice for {house_data.title}",
 						"user": user,
 						"house": house_data,
-						"template_id": invoice_template_id,
-						"invoice_created": datetime.now,                                                
 						"file_name": f"{house_data.id}",
 					}
 					
-					Invoice.send_pdf(params)
 					messages.success(request, "Invoice has been emailed to you")
 					return redirect(reverse("house", kwargs={'house_id': house_data.id}))
 				except:
