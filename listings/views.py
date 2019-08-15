@@ -151,7 +151,6 @@ def pay_fee(request, user_id, house_id):
 					params = {
 						"body": "Thank you",
 						"to": [user.email],
-						"subject": f"Invoice for {house_data.title}",
 						"user": user,
 						"house": house_data,
 						"file_name": f"{house_data.id}",
