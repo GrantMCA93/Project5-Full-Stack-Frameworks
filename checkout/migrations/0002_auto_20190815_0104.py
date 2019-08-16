@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterField(
             model_name='order',
-            name='postcode',
+            name='zipcode',
             field=models.CharField(max_length=20),
         ),
     ]

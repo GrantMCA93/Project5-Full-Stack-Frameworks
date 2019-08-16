@@ -21,7 +21,7 @@
 					<div>
 						<h4>{{ house.title }}</h4>
 						<p>
-							{{house.city}} {{house.City or Town}}, {{house.postcode}}
+							{{house.city}} {{house.State}}, {{house.zipcode}}
 						</p>
 					</div>
 				</div>
@@ -130,12 +130,12 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<p class=""><span>postcode:</span> {{ house.postcode }}</p>
+								<p class=""><span>Postcode:</span> {{ house.zipcode }}</p>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<p class=""><span>City or Town:</span> {{ house.City or Town }}</p>
+								<p class=""><span>State:</span> {{ house.State }}</p>
 							</div>
 						</div>
 					</div>

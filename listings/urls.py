@@ -16,4 +16,5 @@ urlpatterns = [
          listings.search_by_links, name="search_by_links"),
     path('search_by_user/<int:user_id>',
          listings.search_by_user, name="search_by_user"),
+    path('listings', listings.listings, name='listings')
 ]

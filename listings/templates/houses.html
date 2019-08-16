@@ -1,11 +1,25 @@
-{% extends "base.html" %}
-{% load static from staticfiles %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/custom/houses.css' %}">
-{% endblock css %}
-{% block header_content %}
-{% include "partials/_search_form.html" %}
-{% endblock header_content %}
-{% block main_content %}
-{% include "partials/_small_listing.html" %}
-{% endblock main_content %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %}
+
+
+{% block content %}
+
+
+<section class="container">
+    {% for listing in listings %} 
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+        <div class="panel-body">
+            <div class="listing" style="background-image: url('{{ MEDIA_URL }}{{ listing.main_img }}')"></div>
+            
+            <h3>{{ listing.name}}</h3>
+            <p class="listing-description">{{ listing.description}}</p>
+            <p>{{listing.price}}</p>
+            
+            <form method="POST">
+                 {% csrf_token %}
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
