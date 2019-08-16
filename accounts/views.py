@@ -4,6 +4,7 @@ from .forms import UserLoginForm, UserRegistrationForm
 from django.template.context_processors import csrf
 from django.conf import settings
 from django.core.paginator import Paginator
+from accounts.models import UserProfile
 from django.contrib.auth.decorators import login_required
 from django import forms
 from .forms import UserProfileForm, UserLoginForm, EditProfileForm, EditUserForm
@@ -63,23 +64,37 @@ def profile(request):
 
 def register(request):
     """A view that manages the registration form"""
+    if request.user.is_authenticated:
+        messages.error(request, "You are registered and logged in already!")
+        return redirect('index')
     if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
+        user_form = UserProfileForm(request.POST)
         if user_form.is_valid():
             user_form.save()
 
             user = auth.authenticate(request.POST.get('email'),
                                      password=request.POST.get('password1'))
+            
+            profile = UserProfile(
+                user=user,
+                img=request.POST.get('img'),
+                phone=request.POST.get('phone'),
+                description=request.POST.get('description'),
+                terms=True,
+            )
+            profile.save()
+            user = auth.authenticate(username=request.POST.get('username'),
+                                     password=request.POST.get('password1'))
 
             if user:
                 auth.login(request, user)
                 messages.success(request, "You have successfully registered")
-                return redirect('index')
+                return redirect('profile')
 
             else:
                 messages.error(request, "unable to log you in at this time!")
     else:
-        user_form = UserRegistrationForm()
+        user_form = UserProfileForm()
 
     args = {'user_form': user_form}
     return render(request, 'register.html', args)

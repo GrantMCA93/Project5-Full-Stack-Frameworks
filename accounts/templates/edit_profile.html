@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% load bootstrap4 %} {% block content %}
+<!-- profile edit form -->
+<section class="container">
+    <div class="row">
+        <div class="col-12">
+            <form method="POST" action="{% url 'edit_profile' %}" >
+                {% csrf_token %}
+                <fieldset>
+                    <legend class="">Edit Profile {{ user|title }}</legend>
+
+					{% bootstrap_form user_form layout='horizontal' %}
+					{% bootstrap_form profile_form layout='horizontal' %}
+
+				</fieldset>
+				<p class=""></p>
+				<p class=""></p>
+				<div class="">
+					{% buttons %}
+					<button type="submit" class="btn btn-success">Submit Profile changes</button>
+					{% endbuttons %}
+				</div>				
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

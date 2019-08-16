@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-    <form method="post" action="{% url 'register' %}" class="accountform" style="padding: 30px; width:100%;">
+    <form method="POST" action="{% url 'register' %}" class="accountform" style="padding: 30px; width:100%;">
         <fieldset class="form-group" style="min-width: 100%;">
             <legend>Create a new account</legend>
             <p>Already got an account? <a href="{% url 'login' %}">Sign In</a></p>
