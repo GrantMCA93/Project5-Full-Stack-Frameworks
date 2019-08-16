@@ -70,6 +70,7 @@ def addhouse(request, user_id):
             request.session['new_house'] = form.data
             return redirect("preview_house", user_id=user_id, house_id=new_house.id)
         else:
+            print(form.errors)
             messages.error(request, "Please correct the error/s to proceed!")
             return render(request, "addhouse.html", {'form': form})
     # Automaticaly autofill feilds if house exist in session

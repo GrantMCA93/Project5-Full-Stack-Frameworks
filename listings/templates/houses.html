@@ -8,7 +8,7 @@
     {% for listing in listings %} 
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
         <div class="panel-body">
-            <div class="listing" style="background-image: url('{{ MEDIA_URL }}{{ listing.main_img }}')"></div>
+            <div class="listing" style="background-image: url('{{ MEDIA_URL }}{{ listing.image }}')"></div>
             
             <h3>{{ listing.name}}</h3>
             <p class="listing-description">{{ listing.description}}</p>

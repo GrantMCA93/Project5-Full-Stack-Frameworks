@@ -25,22 +25,18 @@
                 <div class="form-row field-description">
                     <legend class="required" for="id_address">Address:</legend>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <label for="address">Address</label><span style="color: red !important; display: inline; float: none;">*</span>
                             {% bootstrap_field placeholder='' show_label=False field=form.address %}                        
                             </div>
-                        <div class="col-md-6">
+<div class="col-md-6">
                             <label for="address">City</label><span style="color: red !important; display: inline; float: none;">*</span>
                             {% bootstrap_field placeholder='' show_label=False field=form.city %}
                         </div>
-                        <!--<div class="col-md-6">-->
-                        <!--    <label for="address">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span>-->
-                        <!--    <input type="text" name="name" class="vTextField" maxlength="254" required="" id="id_zipcode">-->
-                        <!--</div>-->
                         <div class="col-md-4">
 							<label for="State">State</label><span style="color: red !important; display: inline; float: none;">*</span>
 							<select name="State" class="form-control">
-		<option value="andalucia">andalucia</option>
+								<option value="andalucia">Andalucia</option>
 								<option value="almeria">Almeria</option>
 								<option value="alcudia">Alcudia</option>
 								<option value="alicante">Alicante</option>
@@ -90,13 +86,12 @@
 								<option value="mahon">Mahon</option>
 								<option value="menorca">Menorca</option>
 								<option value="murcia">Murcia</option>
-								<option value="playa americas<">Playa Americas<</option>
+								<option value="playa americas">Playa Americas</option>
 								<option value="pollensa">Pollensa</option>
 								<option value="ronda">Ronda</option>
 								<option value="valencia">Valencia</option>
 							</select>
-						</div>
-						<div class="col-md-6">
+						</div>						<div class="col-md-6">
 							<label for="zipcode">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span>
 							{% bootstrap_field placeholder='' show_label=False field=form.zipcode %}
 						</div>                        
