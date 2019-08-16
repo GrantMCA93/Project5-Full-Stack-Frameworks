@@ -15,16 +15,16 @@ class AddListingForm(forms.ModelForm):
 
     class Meta:
         model = Listing
-        fields = ['title', 'address', 'city', 'state', 'zipcode', 'description', 'price', 'bedrooms',
+        fields = ['title', 'address', 'city', 'City or Town', 'postcode', 'description', 'price', 'bedrooms',
                   'bathrooms', 'garage', 'square_feet', 'main_img', 'img_1', 'img_2', 'img_3', 'img_4', 'img_5', 'seller']
 
-    def clean_zipcode(self):
-        zipcode = self.cleaned_data.get('zipcode').lower()
-        zipcode = zipcode.replace(" ", "")
-        if Listing.objects.filter(zipcode=zipcode):
+    def clean_postcode(self):
+        postcode = self.cleaned_data.get('postcode').lower()
+        postcode = postcode.replace(" ", "")
+        if Listing.objects.filter(postcode=postcode):
             raise forms.ValidationError(
-                "Zipcode of the property must be unique")
-        return zipcode
+                "postcode of the property must be unique")
+        return postcode
 
     def clean_price(self):
         price = self.cleaned_data.get('price')
@@ -70,5 +70,5 @@ class EditListingForm(forms.ModelForm):
 
     class Meta:
         model = Listing
-        fields = ['title', 'address', 'city', 'state', 'zipcode', 'description', 'price', 'bedrooms',
+        fields = ['title', 'address', 'city', 'City or Town', 'postcode', 'description', 'price', 'bedrooms',
                   'bathrooms', 'garage', 'square_feet', 'main_img', 'img_1', 'img_2', 'img_3', 'img_4', 'img_5', 'seller']

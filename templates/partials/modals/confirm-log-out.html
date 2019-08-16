@@ -1,0 +1,32 @@
+<!-- confirm you want to logout -->
+<div class="modal" id="confirm-log-out" tabindex="-1" role="dialog" aria-labelledby="log-out" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Ready to Leave?</h5>
+				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body text-center">
+				<p>
+					Are you sure you want to logout?
+				</p>
+				{% if request.session.new_house  %}
+				<p class="text-warning">
+					You seems to have Listing stored in current session… <br/>
+					If you log out your data will be lost!
+				</p>
+				{% endif %}	
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				{% if request.session.new_house  %}
+				  <a class="btn btn-danger" href="{% url 'logout' %}">Logout anyway</a>
+				{% else %}
+				  <a class="btn btn-warning" href="{% url 'logout' %}">Logout</a>
+				{% endif %}				
+			</div>
+		</div>
+	</div>
+</div>

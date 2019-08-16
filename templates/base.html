@@ -30,6 +30,15 @@
                 </div>
             </div>
             {% endif %} {% block content %} {% endblock %}
+            
+		<!-- Modals -->
+		{% if user.is_authenticated %}
+		<!-- User messages modal -->
+		{% include "partials/modals/confirm-log-out.html" %}
+		{% endif %}
+		{% block modals %}
+		
+		{% endblock modals %}            
 
 
 {% include "partials/footer.html" %}

@@ -23,7 +23,7 @@
 							<h4>{{ house.title }}</h4>
 							<p class="py-3">
 								<i class="fas fa-map-marker"></i> {{ house.city }}
-								{{ house.state }}, {{ house.zipcode }}
+								{{ house.City or Town }}, {{ house.postcode }}
 							</p>
 						</div>
 						<div class="row py-2">
@@ -140,12 +140,12 @@
 					</div>
 					<div class="row">
 						<div class="col-12 my-2">
-							<p class="my-2"><span class="font-weight-bold">Zipcode:</span> {{ house.zipcode }}</p>
+							<p class="my-2"><span class="font-weight-bold">postcode:</span> {{ house.postcode }}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-12 my-2">
-							<p class="my-2"><span class="font-weight-bold">State:</span> {{ house.state }}</p>
+							<p class="my-2"><span class="font-weight-bold">City or Town:</span> {{ house.City or Town }}</p>
 						</div>
 					</div>
 				</div>

@@ -141,9 +141,9 @@ def addhouse(request, user_id):
     """
 
     if request.session.get('new_house'):
-        zipcode = request.session['new_house']['zipcode'].lower()
-        zipcode = zipcode.replace(" ", "")
-        Listing.objects.filter(zipcode=zipcode).delete()
+        postcode = request.session['new_house']['postcode'].lower()
+        postcode = postcode.replace(" ", "")
+        Listing.objects.filter(postcode=postcode).delete()
     # Check if user want to add listing under different id
     if user_id is not int(request.session['_auth_user_id']):
         return redirect('addhouse', user_id=request.session['_auth_user_id'])
