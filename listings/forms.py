@@ -15,7 +15,7 @@ class AddListingForm(forms.ModelForm):
 
     class Meta:
         model = Listing
-        fields = ['title', 'address', 'city', 'State', 'zipcode', 'description', 'price', 'bedrooms',
+        fields = ['title', 'address', 'city', 'zipcode', 'description', 'price', 'bedrooms',
                   'bathrooms', 'garage', 'square_feet', 'main_img', 'img_1', 'img_2', 'img_3', 'img_4', 'img_5', 'seller']
 
     def clean_zipcode(self):
@@ -70,5 +70,5 @@ class EditListingForm(forms.ModelForm):
 
     class Meta:
         model = Listing
-        fields = ['title', 'address', 'city', 'State', 'zipcode', 'description', 'price', 'bedrooms',
+        fields = ['title', 'address', 'city', 'zipcode', 'description', 'price', 'bedrooms',
                   'bathrooms', 'garage', 'square_feet', 'main_img', 'img_1', 'img_2', 'img_3', 'img_4', 'img_5', 'seller']

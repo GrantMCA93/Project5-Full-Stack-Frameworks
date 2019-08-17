@@ -93,8 +93,7 @@
 							<div class="">
 								<div class="">
 									<h4 class="pt-3">{{ house.title }}</h4>
-									<p> <i class="fas fa-map-marker"></i> {{ house.city }}
-										{{ house.State }}, {{ house.zipcode }}
+									<p> <i class="fas fa-map-marker"></i> {{ house.city }}, {{ house.zipcode }}
 									</p>
 								</div>
 								<hr />
@@ -127,10 +126,10 @@
 				</div>
 			</div>
 			{% else %}
-			<h5 class="">You did not added any house listings yet.</h5>
+			<h5 class="">You have not listed any houses yet!.</h5>
 			<p class="">
-				<a href="{% url 'addhouse' user.id %}" class="">
-					Add one now!
+				<a href="{% url 'addhouse' user.id %}" class="" style="color: #317eac;">
+					Add Listing!
 				</a>
 			</p>
 			{% endif %}
