@@ -1,13 +1,13 @@
 <div id="search-form" class="container">
-    <form action="{% url 'search' %}">
-        <div class="row">
-            <div class="col-md-8">
-                <label class="sr-only">Keywords</label>
-                <input typle="text" name="keywords" class="form-control" placeholder="keywords">
-            </div>
-            <div class="col-md-4">
-                <label class="sr-only">City</label>
-                <select name="city" class="form-control">
+	<form action="{% url 'search' %}">
+		<div class="row">
+			<div class="col-md-8">
+				<label class="sr-only">Keywords</label>
+				<input typle="text" name="keywords" class="form-control" placeholder="keywords">
+			</div>
+			<div class="col-md-4">
+				<label class="sr-only">City</label>
+				<select name="city" class="form-control">
                 				<option selected="true" disabled>City</option>
 								<option value="andalucia">Andalucia</option>
 								<option value="almeria">Almeria</option>
@@ -64,12 +64,12 @@
 								<option value="zaragoza">Zaragoza</option>
 								<option value="valencia">Valencia</option>
 							</select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label class="sr-only">Bedrooms</label>
-                <select name="bedrooms" class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<label class="sr-only">Bedrooms</label>
+				<select name="bedrooms" class="form-control">
 					<option selected="true" disabled>Bedrooms</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -82,9 +82,25 @@
 					<option value="9">9</option>
 					<option value="10">10</option>
 				</select>
-            </div>
-            <div class="col-md-6">
-                <select name="price" class="form-control" id="type">
+			</div>
+			<div class="col-md-4">
+				<label class="sr-only">Bathrooms</label>
+				<select name="bathrooms" class="form-control">
+					<option selected="true" disabled>Bedrooms</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select>
+			</div>
+			<div class="col-md-4">
+				<select name="price" class="form-control" id="type">
 					<option selected="true" disabled>Max Price</option>
 					<option value="100000">&#36; 100 000</option>
 					<option value="200000">&#36; 200 000</option>
@@ -97,8 +113,8 @@
 					<option value="900000">&#36; 900 000</option>
 					<option value="1000000">&#36; 1 000 000 +</option>
 				</select>
-            </div>
-        </div>
-        <button class="btn btn-secondary btn-block mt-4" type="submit">Search</button>
-    </form>
+			</div>
+		</div>
+		<button class="btn btn-secondary btn-block mt-4" type="submit">Search</button>
+	</form>
 </div>

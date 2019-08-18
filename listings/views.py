@@ -11,12 +11,6 @@ from listings.forms import AddListingForm, PayFeeForm, EditListingForm
 from enquiries.forms import EnquiryForm
 
 
-
-def listings(request):
-    """A view that displays the listings page of a logged in user"""
-    return render(request, 'listings.html')
-
-
 def house(request, house_id):
     """
     Main single house route
@@ -25,7 +19,6 @@ def house(request, house_id):
 
     args = {
         'house': house_data,
-        'page_title': house_data.title,
         'form': EnquiryForm
     }
     return render(request, "house.html", args)
@@ -38,8 +31,7 @@ def houses(request):
     listings = Listing.objects.all().filter(
         is_published=True).order_by('-list_date')
 
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
+
 
     return render(request, "houses.html", {"listings": listings})
 
@@ -235,9 +227,6 @@ def search_by_links(request, key):
     listings = Listing.objects.all().filter(
         is_published=True).order_by(f'-{key}')
 
-    paginator = Paginator(listings, 6)
-    page = request.GET.get('page')
-
 
     args = {
   
@@ -257,7 +246,6 @@ def search_by_user(request, user_id):
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
-
     args = {
         "listings": paged_listings
     }

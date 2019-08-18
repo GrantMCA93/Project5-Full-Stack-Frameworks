@@ -9,9 +9,19 @@
     </div>
 </section>
 <section class="container">
-    <div class="row">
-        <h3>Found 
-			<span class="
+	<div class="row">
+		    	<div class="col-xs-6">
+		<h3 class="text-center">
+			{% for k,v in values.items %}
+			{% if v|length > 0 %}
+				{{ k|title }}: <span class="text-success">{{ v }}</span>,
+			{% endif %}
+			{% endfor %}
+		</h3>
+	</div>
+
+		    <div class="col-xs-6">
+        <h3><span class="
 					{% if listings|length > 0 %}
 					text-success	
 					{% else %}
@@ -19,17 +29,10 @@
 					{% endif %}
 					">{{ listings|length }}
 			</span>
-			listings...</h3>
+			listings Found</h3>
     </div>
-    	<div class="row">
-		<h4 class="text-center">
-			{% for k,v in values.items %}
-			{% if v|length > 0 %}
-				{{ k|title }}: <span class="text-success">{{ v }}</span>,
-			{% endif %}
-			{% endfor %}
-		</h4>
 	</div>
+
 </section>
 
 
