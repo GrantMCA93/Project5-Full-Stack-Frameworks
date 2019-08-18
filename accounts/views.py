@@ -184,7 +184,7 @@ def edit_profile(request):
     if request.method == 'POST':
         user_form = EditUserForm(request.POST, instance=request.user)
         profile_form = EditProfileForm(
-            request.POST, instance=request.user.userprofile)
+            request.POST, instance=request.user.UserProfile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -194,7 +194,7 @@ def edit_profile(request):
             messages.error(request, 'Please correct the error below.')
     else:
         user_form = EditUserForm(instance=request.user)
-        profile_form = EditProfileForm(instance=request.user.userprofile)
+        profile_form = EditProfileForm(instance=request.user.UserProfile)
     args = {
         "user_form": user_form,
         "profile_form": profile_form,

@@ -12,6 +12,7 @@ urlpatterns = [
     path('house/pay_fee/<int:user_id>/<int:house_id>',
          listings.pay_fee, name="pay_fee"),
     path('house/<int:house_id>', listings.house, name="house"),
+    path('search', listings.search, name="search"),
     path('search_by_links/<str:key>',
          listings.search_by_links, name="search_by_links"),
     path('search_by_user/<int:user_id>',

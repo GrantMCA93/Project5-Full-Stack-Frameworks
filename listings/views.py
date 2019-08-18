@@ -19,7 +19,7 @@ def listings(request):
 
 def house(request, house_id):
     """
-    Main route for a single house
+    Main single house route
     """
     house_data = get_object_or_404(Listing, pk=house_id)
 
@@ -33,7 +33,7 @@ def house(request, house_id):
 
 def houses(request):
     """
-            Main route for all houses
+            Main all houses route
             """
     listings = Listing.objects.all().filter(
         is_published=True).order_by('-list_date')
@@ -51,7 +51,7 @@ def houses(request):
 @login_required
 def addhouse(request, user_id):
     """
-    Main route for adding new house listing
+    Main new house listing route 
     """
 
     if request.session.get('new_house'):
@@ -183,7 +183,49 @@ def pay_fee(request, user_id, house_id):
 	})
 
     
-	
+def search(request):
+    """
+    Main search route
+    """
+    listings = Listing.objects.all().filter(
+        is_published=True).order_by('-list_date')
+    p_base = str()
+
+    if 'keywords' in request.GET:
+        keywords = request.GET['keywords']
+        if keywords:
+            listings = listings.filter(description__icontains=keywords)
+            p_base = p_base + f'keywords={keywords}&'
+            
+    if 'city' in request.GET:
+        city = request.GET['city']
+        if city:
+            listings = listings.filter(city__iexact=city)
+            p_base = p_base + f'city={city}&'
+            
+    if 'bedrooms' in request.GET:
+        bedrooms = request.GET['bedrooms']
+        if bedrooms:
+            listings = listings.filter(bedrooms__lte=int(bedrooms))
+            p_base = p_base + f'bedrooms={bedrooms}&'
+    
+    if 'price' in request.GET:
+        price = request.GET['price']
+        if price:
+            if int(price) == 1000000:
+                listings = listings.filter(price__gte=int(price))
+            else:
+                listings = listings.filter(price__lte=int(price))
+            p_base = p_base + f'price={price}&'
+            
+            
+            
+    args = {
+        'listings': listings,
+        'values': request.GET,
+        'base': p_base
+    }
+    return render(request, "search.html", args)
 
 def search_by_links(request, key):
     """ 
@@ -195,10 +237,10 @@ def search_by_links(request, key):
 
     paginator = Paginator(listings, 6)
     page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
+
 
     args = {
-        "listings": paged_listings,
+  
         "key": key
     }
     return render(request, "houses.html", args)

@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %}
+
+{% block content %}
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            {% include "partials/searchform.html" %}
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <h3>Found 
+			<span class="
+					{% if listings|length > 0 %}
+					text-success	
+					{% else %}
+					text-danger
+					{% endif %}
+					">{{ listings|length }}
+			</span>
+			listings...</h3>
+    </div>
+    	<div class="row">
+		<h4 class="text-center">
+			{% for k,v in values.items %}
+			{% if v|length > 0 %}
+				{{ k|title }}: <span class="text-success">{{ v }}</span>,
+			{% endif %}
+			{% endfor %}
+		</h4>
+	</div>
+</section>
+
+
+{% endblock %}
