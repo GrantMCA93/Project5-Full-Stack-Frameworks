@@ -121,6 +121,7 @@ def pay_fee(request, user_id, house_id):
 		return redirect('index')
 	if request.method == "POST":
 		payment_form = PayFeeForm(request.POST)
+		
 		if payment_form.is_valid():
 			try:
 				customer = stripe.Charge.create(
@@ -147,15 +148,11 @@ def pay_fee(request, user_id, house_id):
 					params = {
 						"body": "Thank you",
 						"to": [user.email],
-						"subject": f"Invoice for {house_data.title}",
 						"user": user,
 						"house": house_data,
-						"template_id": invoice_template_id,
-						"invoice_created": datetime.now,                                                
 						"file_name": f"{house_data.id}",
 					}
 					
-					Invoice.send_pdf(params)
 					messages.success(request, "Invoice has been emailed to you")
 					return redirect(reverse("house", kwargs={'house_id': house_data.id}))
 				except:
@@ -167,13 +164,15 @@ def pay_fee(request, user_id, house_id):
 		else:
 			messages.error(
 				request, "We were unable to take a payment with that card!")
+		
+		print(payment_form.errors)		
 	args = {
 		'house': house_data,
 		'page_title': house_data.title,
 		'form': PayFeeForm,
 		'publishable': settings.STRIPE_PUBLISHABLE
 	}
-
+            
 	return render(request, "pay_fee.html", args)
 
 
