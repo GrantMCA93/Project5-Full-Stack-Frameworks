@@ -213,7 +213,7 @@ def search(request):
             
             
     args = {
-        'listings': listings,
+        
         'values': request.GET,
         'base': p_base
     }
