@@ -13,12 +13,13 @@ from enquiries.forms import EnquiryForm
 
 def house(request, house_id):
     """
-    Main single house route
+    Main route for a single house
     """
     house_data = get_object_or_404(Listing, pk=house_id)
 
     args = {
         'house': house_data,
+        'page_title': house_data.title,
         'form': EnquiryForm
     }
     return render(request, "house.html", args)
@@ -26,17 +27,19 @@ def house(request, house_id):
 
 def houses(request):
     """
-            Main all houses route
+            Main route for all houses
             """
     listings = Listing.objects.all().filter(
         is_published=True).order_by('-list_date')
 
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
 
-
-    return render(request, "houses.html")
-
-
-
+    args = {
+        "listings": paged_listings
+    }
+    return render(request, "houses.html", args)
 
 
 
@@ -209,11 +212,18 @@ def search(request):
             else:
                 listings = listings.filter(price__lte=int(price))
             p_base = p_base + f'price={price}&'
-            
-            
-            
+
+    if len(listings) > 0:
+        if len(listings) > 6:
+            paginator = Paginator(listings, 6)
+            page = request.GET.get('page')
+            listings = paginator.get_page(page)
+    else:
+        messages.error(request, "No listings found!")
+        return redirect('houses')
+
     args = {
-        
+        'listings': listings,
         'values': request.GET,
         'base': p_base
     }

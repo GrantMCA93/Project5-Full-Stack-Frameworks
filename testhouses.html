@@ -1,0 +1,115 @@
+<!-- Listings -->
+<section id="listings" class="py-5">
+	<div class="container">
+		<div class="row justify-content-center">
+			{% if listings %} 
+			{% for house in listings %}
+			<div class="col-md-6 col-lg-4 mb-4">
+				<div class="card">
+					<img class="card-img-top" src="{{ house.main_img.url }}" alt="{{ house.title }}" />
+					<div class="card-img-overlay">
+						<h2>
+							<span class="badge badge-secondary text-white"
+								>&#36; {{ house.price }}</span
+							>
+						</h2>
+					</div>
+					<div class="card-body">
+						<div class="text-center">
+							<h4>{{ house.title }}</h4>
+							<p>
+								<i class="fas fa-map-marker"></i> {{ house.city }}
+								{{ house.state }}, {{ house.zipcode }}
+							</p>
+						</div>
+						<div class="row py-2">
+							<div class="col-6">
+								<a href="{% url 'search_by_links' 'square_feet' %}">
+									<i class="fas fa-th-large"></i> Sqft: {{ house.square_feet }}
+								</a>								
+							</div>
+							<div class="col-6">
+								<a href="{% url 'search_by_links' 'garage' %}">
+									<i class="fas fa-car"></i> Garage: {{ house.garage }}
+								</a>
+							</div>
+						</div>
+						<div class="row py-2">
+							<div class="col-6">
+								<a href="{% url 'search_by_links' 'bedrooms' %}">
+									<i class="fas fa-bed"></i> Bedrooms: {{ house.bedrooms }}
+								</a>
+							</div>
+							<div class="col-6">
+								<a href="{% url 'search_by_links' 'bathrooms' %}">
+									<i class="fas fa-bath"></i> Bathrooms: {{ house.bathrooms }}
+								</a>
+							</div>
+						</div>
+						<hr />
+						<div class="row py-2">
+							<div class="col-12 text-center">
+								<a href="{% url 'search_by_user' house.seller.id %}">
+									<i class="fas fa-user"></i> {{ house.seller | title }}
+								</a>
+							</div>
+						</div>
+						<div class="row pb-2">
+							<div class="col-12 text-center">
+								<a href="{% url 'houses' %}">
+									<i class="fas fa-clock"></i> {{ house.list_date | date }}
+								</a>
+							</div>
+						</div>
+						<hr />
+						<div class="row">
+							<a href="{% url 'house' house.id %}" class="btn btn-outline-success btn-block"
+								>See Details</a
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %} 
+			{% else %}
+			<div class="col-md-12 text-center text-danger"><p>No Listings Available</p></div>
+			{% endif %}
+		</div>
+		<!-- Pagination -->
+		<div class="row">
+			<div class="col-12">
+				{% if listings.has_other_pages %}
+				<ul class="pagination row justify-content-center">
+					{% if listings.has_previous %}
+					<li class="page-item px-1">
+						<a href="?{{ base }}page={{ listings.previous_page_number }}" class="page-link">&laquo;</a>
+					</li>
+					{% else %}
+					<li class="page-item disabled px-1">
+						<a class="page-link">&laquo;</a>
+					</li>
+					{% endif %}
+					{% for x in listings.paginator.page_range %}
+					{% if listings.number == x %}
+					<li class="page-item active px-1">
+						<a class="page-link">{{ x }}</a>
+					</li>
+					{% else %}
+					<li class="page-item px-1">
+						<a href="?{{ base }}page={{ x }}" class="page-link">{{ x }}</a>
+					</li>
+					{% endif %} {% endfor %} {% if listings.has_next %}
+					<li class="page-item px-1">
+						<a href="?{{ base }}page={{ listings.next_page_number }}" class="page-link">&raquo;</a>
+					</li>
+					{% else %}
+					<li class="page-item disabled px-1">
+						<a class="page-link">&raquo;</a>
+					</li>
+					{% endif %}
+				</ul>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>
