@@ -13,13 +13,12 @@ def index(request):
     """ 
     View for index.html (landing page)
     """
-    contact_form = ContactForm()
     listings = Listing.objects.exclude(
         is_published=False).order_by("-list_date")[:3]
 
     args = {
         "listings": listings,
-        "form": contact_form,
+      
         
     }  
 

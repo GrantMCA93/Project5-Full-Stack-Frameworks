@@ -33,7 +33,7 @@ def houses(request):
 
 
 
-    return render(request, "houses.html", {"listings": listings})
+    return render(request, "houses.html")
 
 
 
