@@ -16,8 +16,11 @@
             <p>Price:- {{house.price}}</p>
             <p class="listing-description">Description:- {{house.description}}</p>
            
-            <button class="nav-link" href="{% url 'house' house.id  %}">Information</button>
- 
+     						<div class="row">
+							<a href="{% url 'house' house.id %}" class="btn btn-outline-success btn-block"
+							style="color:blue"	>See Details</a
+							>
+						</div>
         </div>
         
     </div>
