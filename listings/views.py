@@ -93,7 +93,7 @@ def preview_house(request, user_id, house_id):
     View for user to confirm his listing or go back and edit it
     """
     if user_id is not int(request.session['_auth_user_id']):
-        return redirect('add_house', user_id=request.session['_auth_user_id'])
+        return redirect('addhouse', user_id=request.session['_auth_user_id'])
 
     house_data = get_object_or_404(Listing, pk=int(house_id))
     if house_data.paid_fee:
@@ -114,7 +114,7 @@ def pay_fee(request, user_id, house_id):
 	"""
 
 	if user_id is not int(request.session['_auth_user_id']):
-		return redirect('add_house', user_id=request.session['_auth_user_id'])
+		return redirect('addhouse', user_id=request.session['_auth_user_id'])
 	house_data = get_object_or_404(Listing, pk=int(house_id))
 	if house_data.paid_fee:
 		messages.error(request, "You already paid for this listing!")
