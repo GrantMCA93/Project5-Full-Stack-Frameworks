@@ -65,14 +65,7 @@ a {
     background-color: #c67605;
 }
 
-.product {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-}
+
 
 caption p {
     word-wrap: break-word;
@@ -94,7 +87,4 @@ caption p {
     border: 1px solid #ddd;
 }
 
-.product-description {
-    min-height: 40px;
-}
 
