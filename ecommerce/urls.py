@@ -17,25 +17,21 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
 from listings import urls as urls_listings
-from products import urls as urls_products
-from cart import urls as urls_cart
+from pages import urls as urls_pages
 from listings import urls as urls_search
 from accounts import urls as urls_reset
-from checkout import urls as urls_checkout
-from products.views import all_products
+
 from django.views import static
 from .settings import MEDIA_ROOT
 
 
 urlpatterns = [
+    url('', include(urls_pages)),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', all_products, name='index'),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^search/', include(urls_search)),
     url(r'^listings/', include(urls_listings)),
-    url(r'^products/', include(urls_products)),
-    url(r'^cart/', include(urls_cart)),
-    url(r'^checkout/', include(urls_checkout)),
+    
     url(r'^reset/', include(urls_reset)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ] 

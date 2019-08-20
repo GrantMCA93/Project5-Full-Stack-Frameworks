@@ -23,3 +23,11 @@ def index(request):
     }  
 
     return render(request, "index.html", args)
+    
+def contact(request):
+
+    return render(request, "contact.html")
+    
+def contact_thank_you_message(request):
+    return render(request, "contact_thank_you_message.html")
+    

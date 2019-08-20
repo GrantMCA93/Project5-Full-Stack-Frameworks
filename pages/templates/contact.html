@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+
+
+<form style="width: 100%;" href="{% url 'contact_thank_you_message' %}">
+    <div class="col-xs-12">
+        <div class="jumbotron text-center">
+            <h2>Contact Us!</h2>
+            <p class="lead" style="text-align: center;">If you wish to contact us please fill out the fold below</p>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="form-group">
+            <p class="lead">Contact Details:</p>
+            <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required>
+            <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Full Name" required>
+            <input type="email" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Comments and Special Request (Optional)"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success center-block btn-lg" value="Go to contact_thank_you_message.html">Submit Booking Request</button>
+    </div>
+</form>
+
+
+
+{% endblock %}

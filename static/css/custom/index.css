@@ -1,0 +1,18 @@
+.background-image{
+    background: url("https://project5-full-stack-frameworks.s3-eu-west-1.amazonaws.com/media/images/mansion-house.jpg") no-repeat center;
+    width: 100%;
+    background-attachment: scroll;
+    margin-top: -54px;
+    margin-bottom: -40px;
+    background-size: cover;
+    min-height: 600px;
+}
+
+.index-page-header{
+    font-family: cursive;
+    text-align: center;
+    color: white;
+    top: 30px;
+    position: relative;
+    font-size: 80px;
+}
