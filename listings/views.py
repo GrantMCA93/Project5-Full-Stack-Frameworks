@@ -118,21 +118,20 @@ def pay_fee(request, user_id, house_id):
 		return redirect('addhouse', user_id=request.session['_auth_user_id'])
 	house_data = get_object_or_404(Listing, pk=int(house_id))
 	if house_data.paid_fee:
-		messages.error(request, "You already paid for this listing!")
+		messages.error(request, "You have already paid for this listing!")
 		return redirect('index')
 	if request.method == "POST":
 		payment_form = PayFeeForm(request.POST)
 		
 		if payment_form.is_valid():
-			try:
-				customer = stripe.Charge.create(
-					amount=int(1000),
-					currency="USD",
-					description=request.user.email,
-					card=payment_form.cleaned_data['stripe_id'],
-				)
-			except stripe.error.CardError:
-				messages.error(request, "Your card was declined!")
+			
+			customer = stripe.Charge.create(
+                    amount=int(1000),
+                    currency="EUR",
+                    description=request.user.email,
+                    card=payment_form.cleaned_data['stripe_id'],
+            )
+			    
 				
 
 			if customer.paid:
