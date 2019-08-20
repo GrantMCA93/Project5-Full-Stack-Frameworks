@@ -32,7 +32,7 @@ def houses(request):
     listings = Listing.objects.all().filter(
         is_published=True).order_by('-list_date')
 
-    paginator = Paginator(listings, 6)
+    paginator = Paginator(listings, 10)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
@@ -263,8 +263,8 @@ def search(request):
             p_base = p_base + f'price={price}&'
 
     if len(listings) > 0:
-        if len(listings) > 6:
-            paginator = Paginator(listings, 6)
+        if len(listings) > 10:
+            paginator = Paginator(listings, 10)
             page = request.GET.get('page')
             listings = paginator.get_page(page)
     else:
