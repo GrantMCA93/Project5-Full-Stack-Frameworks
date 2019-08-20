@@ -133,6 +133,7 @@ def pay_fee(request, user_id, house_id):
 				)
 			except stripe.error.CardError:
 				messages.error(request, "Your card was declined!")
+				
 
 			if customer.paid:
 				messages.success(request, "You have successfully paid!")
