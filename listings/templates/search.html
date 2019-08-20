@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %}
 
 {% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/houses.css' %}">
+{% endblock css %}
 <section class="container">
     <div class="row">
         <div class="col-xs-12">

@@ -2,6 +2,7 @@
 
 
 {% block content %}
+
 <section class="container">
     <div class="row" >
         		<form enctype="multipart/form-data" action="" method="POST">
@@ -17,137 +18,7 @@
                     </div>
 				</div>
 			</fieldset>
-			<!--- Property Address --->
-			<fieldset>
-				<div class="form-row field-description">
-					<legend class="required" for="id_address">Address:</legend>
-					<div class="row">
-						<div class="col-md-12">
-							<label for="address">Address</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.address %}
-						</div>
-						<div class="col-md-4">
-							<label for="city">City</label><span style="color: red !important; display: inline; float: none;">*</span>
-							<select name="city" class="form-control">
-								<option value="andalucia">Andalucia</option>
-								<option value="almeria">Almeria</option>
-								<option value="alcudia">Alcudia</option>
-								<option value="alicante">Alicante</option>
-								<option value="avila">Avila</option>
-								<option value="barcelona">Barcelona</option>
-								<option value="balearic islands">Balearic islands</option>
-								<option value="benalmadena">Benalmadena</option>
-								<option value="benidorm">Benidorm</option>
-								<option value="bilbao">Bilbao</option>
-								<option value="canary islands">Canary Islands</option>
-								<option value="catalonia">Catalonia</option>
-								<option value="costa almeria">Costa Almeria</option>
-								<option value="costa blanca">Costa Blanca</option>
-								<option value="costa del sol">Costa Del Sol</option>
-								<option value="costa de la luz">Costa De La Luz</option>
-								<option value="costa dorada">Costa Dorada</option>
-								<option value="cordoba">Cordoba</option>
-								<option value="costa calida">Costa Calida</option>
-								<option value="costa brava">Costa Brava</option>
-								<option value="estepona">Estepona</option>
-								<option value="formentera">Formentera</option>
-								<option value="fuengirola">Fuengirola</option>
-								<option value="fuerteventura">Fuerteventura</option>
-								<option value="galicia">Galicia</option>
-								<option value="girona">Girona</option>
-								<option value="granada">Granada</option>
-								<option value="gran canaria">Gran Canaria</option>
-								<option value="huelva">Huelva</option>
-								<option value="ibiza">Ibiza</option>
-								<option value="jerez">Jerez</option>
-								<option value="la manga">La Manga</option>
-								<option value="lanzarote">Lanzarote</option>
-								<option value="lloret de mar">Lloret De Mar</option>
-								<option value="madrid">Madrid</option>
-								<option value="mahon">Mahon</option>
-								<option value="majorca">Majorca</option>
-								<option value="malaga">Malaga</option>
-								<option value="marbella">Marbella</option>
-								<option value="menorca">Menorca</option>
-								<option value="murcia">Murcia</option>
-								<option value="palma majorca">Palma Majorca</option>
-								<option value="pamplona">Pamplona</option>
-								<option value="playa americas">Playa Americas</option>
-								<option value="pollensa">Pollensa</option>
-								<option value="ronda">Ronda</option>
-								<option value="san sebastian">San Sebastian</option>
-								<option value="seville">Seville</option>
-								<option value="segovia">Segovia</option>
-								<option value="tenerife">Tenerife</option>
-								<option value="toledo">Toledo</option>
-								<option value="torremolinos">Torremolinos</option>
-								<option value="zaragoza">Zaragoza</option>
-								<option value="valencia">Valencia</option>
-							</select>
-						</div>
-						<div class="col-md-6">
-							<label for="zipcode">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.zipcode %}
-						</div>
-					</div>
-				</div>
-			</fieldset>
-			<!--- Property Information --->
-			<fieldset>
-				<legend class="required" for="id_propertyinfo">Property Info</legend>
-				<div class="row">
-					<div class="col-md-6">
-						<label for="property">Property Price</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.price %}
-					</div>
-					<div class="col-md-6">
-						<label for="property">Number of square foot</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.square_feet %}
-					</div>
-					<div class="col-md-6">
-						<label for="property">Number of Bedrooms</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bedrooms %}
-					</div>
-					<div class="col-md-6">
-						<label for="property">Number of Bathrooms</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bathrooms %}
-					</div>
-					<div class="col-md-6">
-						<label for="property">Number of Garages</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.garage %}
-					</div>
-				</div>
-	</div>
-	</fieldset>
-	<!--- Property Images --->
-	<fieldset>
-		<legend class="required" for="id_propertyimages">Property Images</legend>
-		<div class="row">
-			<div class="col-md-6">
-				<div class="row justify-content-around">
-					<label for="main_img">Image 1<span style="color: red !important; display: inline; float: none;">*</span></label> {% bootstrap_field layout='horizontal' placeholder='' show_label=False field=form.main_img %}
-				</div>
-				<div class="row justify-content-around">
-					<label for="main_img">Image 2</label> {% bootstrap_field placeholder='' show_label=False field=form.img_1 %}
-				</div>
-				<div class="row justify-content-around">
-					<label for="main_img">Image 3</label> {% bootstrap_field placeholder='' show_label=False field=form.img_2 %}
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="row justify-content-around">
-					<label for="main_img">Image 4</label> {% bootstrap_field placeholder='' show_label=False field=form.img_3 %}
-				</div>
-				<div class="row justify-content-around">
-					<label for="main_img">Image 5</label> {% bootstrap_field placeholder='' show_label=False field=form.img_4 %}
-				</div>
-				<div class="row justify-content-around">
-					<label for="main_img">Image 6</label> {% bootstrap_field placeholder='' show_label=False field=form.img_5 %}
-				</div>
-			</div>
-		</div>
-	</fieldset>
-	<!--- Property Description --->
-	<fieldset>
-		<legend class="required" for="id_propertydescription">Property Description</legend>
-		<div class="row">
-			{% bootstrap_field placeholder='' show_label=False field=form.description %}
 
-		</div>
-	</fieldset>
 				{% buttons %}
 				<button type="submit" class="btn btn-success float-right">Next <i class="fas fa-angle-double-right"></i></button>				
 				{% endbuttons %}

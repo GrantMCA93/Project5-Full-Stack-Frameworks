@@ -31,7 +31,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								{% csrf_token %}
-								{% bootstrap_field field=form.stripe_id %}
+								{% bootstrap_field  field=form.stripe_id %}
 								{% buttons %}
 								<button id="validate-card-btn" type="submit" class="btn btn-success btn-block">Pay Fee</button>
 								{% endbuttons %}
@@ -61,4 +61,16 @@
 	</div>
 </section>
 
-{% endblock %}
+{% endblock content %}
+
+{% block js %}
+<!-- Stripe JS -->
+<script src="https://js.stripe.com/v3/" type="text/javascript"></script>
+<script type="text/javascript">
+	//<![CDATA[
+	Stripe.publishableKey = '{{ publishable }}';
+	//]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock js %}
+

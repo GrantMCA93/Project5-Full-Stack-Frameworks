@@ -149,7 +149,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 AWS_DEFAULT_ACL = None
 AWS_STORAGE_BUCKET_NAME = 'project5-full-stack-frameworks'
 AWS_S3_REGION_NAME = 'eu-west-1'
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_SECRET_KEY_ID")
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
@@ -170,6 +170,10 @@ MEDIA_URL = 'media/'
 
 STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
 STRIPE_SECRET = os.getenv('STRIPE_SECRET')
+print(STRIPE_PUBLISHABLE)
+print(STRIPE_SECRET)
+print(AWS_ACCESS_KEY_ID)
+print(AWS_SECRET_ACCESS_KEY)
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 

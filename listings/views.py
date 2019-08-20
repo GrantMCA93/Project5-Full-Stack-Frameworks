@@ -10,6 +10,7 @@ from listings.models import Listing
 from listings.forms import AddListingForm, PayFeeForm, EditListingForm
 from enquiries.forms import EnquiryForm
 
+stripe.api_key = settings.STRIPE_SECRET
 
 def house(request, house_id):
     """
@@ -32,7 +33,7 @@ def houses(request):
     listings = Listing.objects.all().filter(
         is_published=True).order_by('-list_date')
 
-    paginator = Paginator(listings, 10)
+    paginator = Paginator(listings, 9)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
@@ -241,12 +242,6 @@ def search(request):
             listings = listings.filter(city__iexact=city)
             p_base = p_base + f'city={city}&'
 
-    if 'state' in request.GET:
-        state = request.GET['state']
-        if state:
-            listings = listings.filter(state__iexact=state)
-            p_base = p_base + f'state={state}&'
-
     if 'bedrooms' in request.GET:
         bedrooms = request.GET['bedrooms']
         if bedrooms:
@@ -263,8 +258,8 @@ def search(request):
             p_base = p_base + f'price={price}&'
 
     if len(listings) > 0:
-        if len(listings) > 10:
-            paginator = Paginator(listings, 10)
+        if len(listings) > 9:
+            paginator = Paginator(listings, 9)
             page = request.GET.get('page')
             listings = paginator.get_page(page)
     else:
@@ -287,7 +282,7 @@ def search_by_links(request, key):
     listings = Listing.objects.all().filter(
         is_published=True).order_by(f'-{key}')
 
-    paginator = Paginator(listings, 6)
+    paginator = Paginator(listings, 9)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
@@ -306,7 +301,7 @@ def search_by_user(request, user_id):
     listings = Listing.objects.all().filter(
         is_published=True, seller=user_id).order_by('-list_date')
 
-    paginator = Paginator(listings, 6)
+    paginator = Paginator(listings, 9)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
