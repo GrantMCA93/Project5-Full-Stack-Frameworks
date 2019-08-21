@@ -11,6 +11,7 @@ from .forms import UserProfileForm, UserLoginForm, EditProfileForm, EditUserForm
 from enquiries.forms import EnquiryForm
 from listings.models import Listing
 from listings.forms import AddListingForm, PayFeeForm, EditListingForm
+from django.contrib.auth.models import User
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET
@@ -55,8 +56,20 @@ def login(request):
 
 @login_required
 def profile(request):
-    """A view that displays the profile page of a logged in user"""
-    return render(request, 'profile.html')
+    """
+    User Profile view
+    """
+
+    user = get_object_or_404(User, pk=request.user.id)
+    user_profile = get_object_or_404(UserProfile, user=user.id)
+    listings = Listing.objects.all().filter(seller=user.id).order_by('-list_date')
+
+    args = {
+        "listings": listings,
+        "user": user,
+        "user_profile": user_profile
+    }
+    return render(request, "profile.html", args)
 
 
 
@@ -125,3 +138,7 @@ def edit_profile(request):
         "profile_form": profile_form,
     }
     return render(request, "edit_profile.html", args)
+    
+
+    
+    

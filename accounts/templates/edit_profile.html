@@ -3,7 +3,11 @@
 <section class="container">
     <div class="row">
         <div class="col-12">
-            <form method="POST" action="{% url 'edit_profile' %}" >
+            <form method="POST"  >
+                				<a href="{% url 'profile' %}">
+					<i class="fas fa-user-edit"></i>
+					<span class="text-success">Back to Profile</span>
+				</a>
                 {% csrf_token %}
                 <fieldset>
                     <legend class="">Edit Profile {{ user|title }}</legend>
@@ -14,11 +18,16 @@
 				</fieldset>
 				<p class=""></p>
 				<p class="">If you want to change your password
-				<div href="{% url 'password_reset' %}">
+				<a href="{% url 'password_change' %}">
+					<i class="fas fa-user-edit"></i>
+					<span class="text-success">Edit your profile Password</span>
+				</a>
+				</div>	
+								<div class="form-group text-right">
 					{% buttons %}
-					<button type="submit" class="btn btn-success">Submit Profile changes</button>
+					<button type="submit" class="btn btn-success">Submit changes</button>
 					{% endbuttons %}
-				</div>				
+				</div>
             </form>
         </div>
     </div>

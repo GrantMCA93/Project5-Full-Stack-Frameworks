@@ -1,20 +1,14 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %}
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
 
 
-{% block content %}
-{% block css %}
-    <link rel="stylesheet" href="{% static 'css/custom/profile.css' %}">
-{% endblock css %}
-
-<body>
-	<section class="container">
+<section class="container">
 	<div class="row">
 		<div class="card col-xs-12">
 			<h1 class="">Welcome {{ user.username|title }}</h1>
 			<p class="">
 				<a href="{% url 'edit_profile' %}">
 					<i class="fas fa-user-edit"></i>
-					<span class="text-success">Edit Profile</span>
+					<span class="text-success">Edit your profile</span>
 				</a>
 			</p>
 			<div>
@@ -24,7 +18,8 @@
 						<img src="{{ user.img.url }}" alt="Profile  picture">
 					</div>
 					{% else %}
-					<div class="col-md-6 profile-avatar" alt="profile-avatar"  >
+					<div class="col-md-6">
+						<img src="https://project5-full-stack-frameworks.s3-eu-west-1.amazonaws.com/media/images/profile_avatar.png"  alt="Profile picture">
 					</div>
 					{% endif %}
 					<div class="col-md-6">
@@ -77,7 +72,7 @@
 					{% for house in listings %}
 					<div class="col-md-6 col-lg-4 mb-4">
 						<div class="card">
-							<img class="" src="{{ house.main_img.url }}" alt="{{ house.title }}" />
+							<img class="" src="{{ house.main_img.url }}" style="height: 50px;" alt="{{ house.title }}" />
 							<div class="">
 								<h2>
 									<span class="">£{{ house.price }}</span>
@@ -91,9 +86,7 @@
 								</div>
 								<hr />
 								<div class="">
-									<div>
-										<img class="card-img-top" src="{{ house.main_img.url }}" alt="{{ house.title }}" />
-									</div>
+								
 									<div class="body container">
 										<div class="row">
 											{% if house.is_published %}
@@ -108,7 +101,6 @@
 										</div>
 										<div class="row">
 											<a class="btn btn-outline-success" href="{% url 'house' house.id %}"> <span class="text-light"><i class="fas fa-eye"></i></span> View listing</a>
-											<a class="btn btn-outline-secondary" href="{% url 'view_invoice' house.id %}" target="_blank"><span class="text-light"><i class="fas fa-file-pdf"></i></span> Generate invoice</a>
 										</div>
 									</div>
 								</div>
@@ -129,5 +121,4 @@
 		</div>
 	</div>
 </section>
-</body>
 {% endblock %}

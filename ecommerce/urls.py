@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^accounts/', include(urls_accounts)),
     url(r'^search/', include(urls_search)),
     url(r'^listings/', include(urls_listings)),
+    url(r'^pages/', include(urls_pages)),
     url(r'^reset/', include(urls_reset)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ] 
