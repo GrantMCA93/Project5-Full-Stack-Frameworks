@@ -211,11 +211,11 @@ def delete_house(request, user_id, house_id):
         Main route to delete listing
         """
     if user_id is not int(request.session['_auth_user_id']):
-        messages.error(request, "You cannot delete this listing!")
+        messages.error(request, "You are not allowed to delete the listing!")
         return redirect('index')
     if request.method == "GET":
         Listing.objects.filter(pk=house_id).delete()
-        messages.success(request, "your listing has been deleted")
+        messages.success(request, "You listing has been deleted")
         return redirect(reverse("index"))
     else:
         return redirect(reverse("index"))

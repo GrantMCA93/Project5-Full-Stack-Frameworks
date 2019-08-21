@@ -14,10 +14,12 @@
             <p class="listing-description">Description:- {{house.description}}</p>
            
      						
+
+<div id="house-btns" class="container pb-5">
+	<div class="row justify-content-around py-3">
 		{% if user.is_authenticated and user == house.seller %}
-			<button class="btn btn-danger my-2 my-sm-0" type="button" data-toggle="modal" data-target="#delete-house">Delete
-				Listing</button>
-			<a href="{% url 'edit_house' user.id house.id %}" class="btn btn-warning">Edit Listing</a>
+			<button class="btn btn-danger my-2 my-sm-0" type="button" data-toggle="modal" data-target="#delete-house">Delete listing</button>
+			<a href="{% url 'edit_house' user.id house.id %}" class="btn btn-warning">Edit listing</a>
 		{% else %}
 		{% if user.is_authenticated%}
 			<button class="btn btn-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#enquire-modal">Contact {{ house.seller|title }}
@@ -34,5 +36,5 @@
 	</div>
 </div>
 </section>
-
+{% include "partials/modals/delete_house.html" %}
 {% endblock %}
