@@ -15,9 +15,9 @@
            
      						
 		{% if user.is_authenticated and user == house.seller %}
-			<button class="btn btn-danger my-2 my-sm-0" type="button" data-toggle="modal" data-target="#delete-house-modal">Delete
-				your listing</button>
-			<a href="{% url 'edit_house' user.id house.id %}" class="btn btn-warning">Edit your listing</a>
+			<button class="btn btn-danger my-2 my-sm-0" type="button" data-toggle="modal" data-target="#delete-house">Delete
+				Listing</button>
+			<a href="{% url 'edit_house' user.id house.id %}" class="btn btn-warning">Edit Listing</a>
 		{% else %}
 		{% if user.is_authenticated%}
 			<button class="btn btn-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#enquire-modal">Contact {{ house.seller|title }}

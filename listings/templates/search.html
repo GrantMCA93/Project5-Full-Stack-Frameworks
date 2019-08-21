@@ -1,42 +1,32 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %}
-
-{% block content %}
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/custom/houses.css' %}">
-{% endblock css %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/houses.css' %}"> {% endblock css %}
 <section class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            {% include "partials/searchform.html" %}
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-xs-12">
+			{% include "partials/searchform.html" %}
+		</div>
+	</div>
 </section>
 <section class="container">
 	<div class="row">
-		    	<div class="col-xs-6">
-		<h3 class="text-center">
-			{% for k,v in values.items %}
-			{% if v|length > 0 %}
-				{{ k|title }}: <span class="text-success">{{ v }}</span>,
-			{% endif %}
-			{% endfor %}
-		</h3>
-	</div>
+		<div class="col-xs-12">
+			<div class="col-xs-6">
+				<h3 class="text-center">
+					{% for k,v in values.items %} {% if v|length > 0 %} {{ k|title }}: <span class="text-success">{{ v }}</span>, {% endif %} {% endfor %}
+				</h3>
+			</div>
 
-		    <div class="col-xs-6">
-        <h3><span class="
+			<div class="col-xs-6">
+				<h3><span class="
 					{% if listings|length > 0 %}
 					text-success	
 					{% else %}
 					text-danger
 					{% endif %}
 					">{{ listings|length }}
-			</span>
-			listings Found</h3>
-    </div>
+			</span> listings Found</h3>
+			</div>
+		</div>
 	</div>
-
 </section>
-{% include "partials/listings_small_display.html" %}
-
-{% endblock %}
+{% include "partials/listings_small_display.html" %} {% endblock %}

@@ -1,0 +1,8 @@
+.profile-avatar{
+    background: url("https://project5-full-stack-frameworks.s3-eu-west-1.amazonaws.com/media/images/profile_avatar.png") no-repeat center;
+      background-attachment: scroll;
+    margin-top: -54px;
+    margin-bottom: -40px;
+    background-size: cover;
+    min-height: 600px;
+}

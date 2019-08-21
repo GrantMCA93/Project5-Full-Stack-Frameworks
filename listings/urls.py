@@ -10,6 +10,8 @@ urlpatterns = [
     path('house/edit_house/<int:user_id>/<int:house_id>',
          listings.edit_house, name="edit_house"),
     path('search', listings.search, name="search"),
+    path('house/delete_house/<int:user_id>/<int:house_id>',
+         listings.delete_house, name="delete_house"),
     path('search_by_links/<str:key>', listings.search_by_links, name="search_by_links"),
     path('search_by_user/<int:user_id>', listings.search_by_user, name="search_by_user"),
 ]
