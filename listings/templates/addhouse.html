@@ -1,33 +1,34 @@
 {% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %}
 
 
-<section class="container">
-	<div>
-		<h4>User Listing</h4>
-	</div>
-	<div id="content-main">
-		<form enctype="multipart/form-data" action="" method="POST">
-			{% csrf_token %}
-			<!--- Property Name --->
-			<fieldset class="module aligned ">
-				<div class="form-row field-name">
-					<div>
-						<legend class="required" for="id_name">Property Name:</legend>
-						{% bootstrap_field placeholder='' show_label=False field=form.title %}
-					</div>
-				</div>
-			</fieldset>
-			<!--- Property Address --->
-			<fieldset>
-				<div class="form-row field-description">
-					<legend class="required" for="id_address">Address:</legend>
-					<div class="row">
-						<div class="col-md-12">
-							<label for="address">Address</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.address %}
+<section class="container" style="width: 100%;">
+
+			<div>
+				<h4>User Listing</h4>
+			</div>
+			<div id="content-main">
+				<form enctype="multipart/form-data" action="" method="POST">
+					{% csrf_token %}
+					<!--- Property Name --->
+					<fieldset class="module aligned ">
+						<div class="form-row field-name">
+							<div>
+								<legend class="required" for="id_name">Property Name:</legend>
+								{% bootstrap_field placeholder='' show_label=False field=form.title %}
+							</div>
 						</div>
-						<div class="col-md-4">
-							<label for="city">City</label><span style="color: red !important; display: inline; float: none;">*</span>
-							<select name="city" class="form-control">
+					</fieldset>
+					<!--- Property Address --->
+					<fieldset>
+						<div class="form-row field-description">
+							<legend class="required" for="id_address">Address:</legend>
+							<div class="row">
+								<div class="col-md-12">
+									<label for="address">Address</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.address %}
+								</div>
+								<div class="col-md-4">
+									<label for="city">City</label><span style="color: red !important; display: inline; float: none;">*</span>
+									<select name="city" class="form-control">
 								<option value="andalucia">Andalucia</option>
 								<option value="almeria">Almeria</option>
 								<option value="alcudia">Alcudia</option>
@@ -83,79 +84,80 @@
 								<option value="zaragoza">Zaragoza</option>
 								<option value="valencia">Valencia</option>
 							</select>
+								</div>
+								<div class="col-md-6">
+									<label for="zipcode">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.zipcode %}
+								</div>
+							</div>
 						</div>
-						<div class="col-md-6">
-							<label for="zipcode">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.zipcode %}
+					</fieldset>
+					<!--- Property Information --->
+					<fieldset>
+						<legend class="required" for="id_propertyinfo">Property Info</legend>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="property">Property Price</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.price %}
+							</div>
+							<div class="col-md-6">
+								<label for="property">Number of square foot</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.square_feet %}
+							</div>
+							<div class="col-md-6">
+								<label for="property">Number of Bedrooms</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bedrooms %}
+							</div>
+							<div class="col-md-6">
+								<label for="property">Number of Bathrooms</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bathrooms %}
+							</div>
+							<div class="col-md-6">
+								<label for="property">Number of Garages</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.garage %}
+							</div>
+						</div>
+			</div>
+			</fieldset>
+			<!--- Property Images --->
+			<fieldset>
+				<legend class="required" for="id_propertyimages">Property Images</legend>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="row justify-content-around">
+							<label for="main_img">Image 1<span style="color: red !important; display: inline; float: none;">*</span></label> {% bootstrap_field layout='horizontal' placeholder='' show_label=False field=form.main_img %}
+						</div>
+						<div class="row justify-content-around">
+							<label for="main_img">Image 2</label> {% bootstrap_field placeholder='' show_label=False field=form.img_1 %}
+						</div>
+						<div class="row justify-content-around">
+							<label for="main_img">Image 3</label> {% bootstrap_field placeholder='' show_label=False field=form.img_2 %}
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="row justify-content-around">
+							<label for="main_img">Image 4</label> {% bootstrap_field placeholder='' show_label=False field=form.img_3 %}
+						</div>
+						<div class="row justify-content-around">
+							<label for="main_img">Image 5</label> {% bootstrap_field placeholder='' show_label=False field=form.img_4 %}
+						</div>
+						<div class="row justify-content-around">
+							<label for="main_img">Image 6</label> {% bootstrap_field placeholder='' show_label=False field=form.img_5 %}
 						</div>
 					</div>
 				</div>
 			</fieldset>
-			<!--- Property Information --->
+			<!--- Property Description --->
 			<fieldset>
-				<legend class="required" for="id_propertyinfo">Property Info</legend>
+				<legend class="required" for="id_propertydescription">Property Description</legend>
 				<div class="row">
-					<div class="col-md-6">
-						<label for="property">Property Price</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.price %}
-					</div>
-					<div class="col-md-6">
-						<label for="property">Number of square foot</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.square_feet %}
-					</div>
-					<div class="col-md-6">
-						<label for="property">Number of Bedrooms</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bedrooms %}
-					</div>
-					<div class="col-md-6">
-						<label for="property">Number of Bathrooms</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bathrooms %}
-					</div>
-					<div class="col-md-6">
-						<label for="property">Number of Garages</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.garage %}
-					</div>
+					{% bootstrap_field placeholder='' show_label=False field=form.description %}
+
 				</div>
-	</div>
-	</fieldset>
-	<!--- Property Images --->
-	<fieldset>
-		<legend class="required" for="id_propertyimages">Property Images</legend>
-		<div class="row">
-			<div class="col-md-6">
-				<div class="row justify-content-around">
-					<label for="main_img">Image 1<span style="color: red !important; display: inline; float: none;">*</span></label> {% bootstrap_field layout='horizontal' placeholder='' show_label=False field=form.main_img %}
-				</div>
-				<div class="row justify-content-around">
-					<label for="main_img">Image 2</label> {% bootstrap_field placeholder='' show_label=False field=form.img_1 %}
-				</div>
-				<div class="row justify-content-around">
-					<label for="main_img">Image 3</label> {% bootstrap_field placeholder='' show_label=False field=form.img_2 %}
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="row justify-content-around">
-					<label for="main_img">Image 4</label> {% bootstrap_field placeholder='' show_label=False field=form.img_3 %}
-				</div>
-				<div class="row justify-content-around">
-					<label for="main_img">Image 5</label> {% bootstrap_field placeholder='' show_label=False field=form.img_4 %}
-				</div>
-				<div class="row justify-content-around">
-					<label for="main_img">Image 6</label> {% bootstrap_field placeholder='' show_label=False field=form.img_5 %}
-				</div>
-			</div>
-		</div>
-	</fieldset>
-	<!--- Property Description --->
-	<fieldset>
-		<legend class="required" for="id_propertydescription">Property Description</legend>
-		<div class="row">
-			{% bootstrap_field placeholder='' show_label=False field=form.description %}
+			</fieldset>
+			{% buttons %}
+			<button type="submit" class="btn btn-success float-right">Preview <i class="fa fa-angle-double-right" aria-hidden="true"></i></button> {% endbuttons %}
+			<!-- Store user ID -->
+			<input type="hidden" name="seller" value="{{ user.id }}">
+			</form>
+
 
 		</div>
-	</fieldset>
-	{% buttons %}
-	<button type="submit" class="btn btn-success float-right">Preview <i class="fas fa-angle-double-right"></i></button> {% endbuttons %}
-	<!-- Store user ID -->
-	<input type="hidden" name="seller" value="{{ user.id }}">
-	</form>
 
-
-	</div>
 </section>
 
 

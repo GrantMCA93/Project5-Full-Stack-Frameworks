@@ -2,8 +2,8 @@
 
 
 <section class="container">
+<div class="card col-xs-12">	
 	<div class="row">
-		<div class="card col-xs-12">
 			<h1 class="">Welcome {{ user.username|title }}</h1>
 			<p class="">
 				<a href="{% url 'edit_profile' %}">
@@ -63,50 +63,15 @@
 		</div>
 	</div>
 	<hr>
+	</div>
 	<div class="row">
 		<div class="card col-xs-12">
 			{% if listings %}
-			<h4 class="">Your listings:</h4>
-			<div class="">
+			<h1 class="">Your listings:</h1>
+			<hr/>
 				<div id="listings" class="row">
 					{% for house in listings %}
-					<div class="col-md-6 col-lg-4 mb-4">
-						<div class="card">
-							<img class="" src="{{ house.main_img.url }}" style="height: 50px;" alt="{{ house.title }}" />
-							<div class="">
-								<h2>
-									<span class="">£{{ house.price }}</span>
-								</h2>
-							</div>
-							<div class="">
-								<div class="">
-									<h4 class="pt-3">{{ house.title }}</h4>
-									<p> <i class="fas fa-map-marker"></i> {{ house.city }}, {{ house.zipcode }}
-									</p>
-								</div>
-								<hr />
-								<div class="">
-								
-									<div class="body container">
-										<div class="row">
-											{% if house.is_published %}
-											<p class="">
-												Appoved!
-											</p>
-											{% else %}
-											<p class="">
-												Waiting for approval!
-											</p>
-											{% endif %}
-										</div>
-										<div class="row">
-											<a class="btn btn-outline-success" style="color:blue;" href="{% url 'house' house.id %}"> <span class="text-light"><i class="fas fa-eye"></i></span> View listing</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+{% include "partials/listings_small_display.html" %}
 					{% endfor %}
 				</div>
 			</div>

@@ -1,0 +1,34 @@
+{% load bootstrap4 %}
+<div class="modal fade" id="listing-enquire-modal" tabindex="-1" role="dialog" aria-labelledby="delete-house" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title text-center">{{ house.title }} Enquire</h5>
+				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form method="POST" action="{% url 'send_enquire_message' user.id house.id %}" >
+					{% csrf_token %}	
+					{% bootstrap_field show_label=False field=form.message %}
+					{% bootstrap_field field=form.viewing %}
+					<div class="form-group text-center">
+						{% buttons %}
+						<button type="submit" class="btn btn-success">Submit enquire</button>
+						{% endbuttons %}
+					</div>
+					<input type="hidden" name="to" value="{{ house.seller }}">
+					<input type="hidden" name="to_id" value="{{ house.seller.id }}">
+					<input type="hidden" name="to_email" value="{{ house.seller.email }}">
+					<input type="hidden" name="house_id" value="{{ house.id }}">
+					<input type="hidden" name="house_name" value="{{ house.title }}">
+					<input type="hidden" name="sender" value="{{ user.username }}">
+					<input type="hidden" name="sender_id" value="{{ user.id }}">
+					<input type="hidden" name="sender_email" value="{{ user.email }}">
+					<input type="checkbox" name="new_to" class="form-check-input d-none" checked>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

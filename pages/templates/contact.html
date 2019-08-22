@@ -1,11 +1,10 @@
 {% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
-
-
-<form style="width: 100%;" href="{% url 'contact_thank_you_message' %}">
+<section section id="contact" class="contact-section" style="width: 100%;">
+<form  id="myform" onsubmit="return sendMail(this);" method="POST" style="width: 100%;">
     <div class="col-xs-12">
         <div class="jumbotron text-center">
             <h2>Contact Us!</h2>
-            <p class="lead" style="text-align: center;">If you wish to contact us please fill out the fold below</p>
+            <p class="lead" style="text-align: center;">If you wish to contact us please fill out the form below</p>
         </div>
     </div>
     <div class="col-xs-12">
@@ -16,12 +15,15 @@
             <input type="email" name="emailaddress" class="form-control" id="emailaddress" placeholder="Email Address" required>
         </div>
         <div class="form-group">
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Comments and Special Request (Optional)"></textarea>
+            <textarea class="form-control" id="textarea" rows="5" placeholder="Comments and Special Request (Optional)"></textarea>
         </div>
-        <button type="submit" class="btn btn-success center-block btn-lg" value="Go to contact_thank_you_message.html">Submit Booking Request</button>
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success center-block btn-lg" href="{% url 'contact_thank_you_message' %}">Submit</button>
     </div>
 </form>
+</section>
 
 
 
 {% endblock %}
+

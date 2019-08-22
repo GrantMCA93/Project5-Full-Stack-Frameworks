@@ -3,165 +3,36 @@
 
 <section class="container">
 	<div class="row">
-		<h2>{{ page_title }}</h2>
-		<hr>
-		<div class="col-xs-12">
-			<div class="row">
-				<div class="col-md-6">
-					<img class="card-img" src="{{ house.main_img.url }}" alt="{{ house.title }}" height="200px" />
-					<h2>
-						<span>
-					&#36; {{ house.price }}
-					</span>
-					</h2>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div>
-					<div>
-						<h4>{{ house.title }}</h4>
-						<p>
-							{{house.city}}, {{house.zipcode}}
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					<a href="{% url 'search_by_links' 'square_feet' %}">
-						<i></i> sqft: {{house.square_feet}}
-					</a>
-				</div>
-				<div class="col-xs-6">
-					<a href="{% url 'search_by_links' 'garage' %}">
-						<i></i> Garage: {{house.garage}}
-					</a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-6">
-					<a href="{% url 'search_by_links' 'bedrooms' %}">
-						<i></i> Bedrooms: {{house.bedrooms}}
-					</a>
-				</div>
-				<div class="col-xs-6">
-					<a href="{% url 'search_by_links' 'bathrooms' %}">
-						<i></i> Bathrooms: {{house.bathrooms}}
-					</a>
-				</div>
-			</div>
-			<hr/>
-			<div class="row">
-				<div class="col-xs-6">
-					<a href="{% url 'houses' %}">
-						<i></i> {{ house.list_date | date }}
-					</a>
-				</div>
-				<div class="col-xs-6">
-					<a href="{% url 'search_by_user' house.seller.id %}">
-						<i></i> {{house.bathrooms}}{{ house.seller | title }}
-						</a>
-				</div>
-			</div>
-		</div>
-</div>
-	{% if house.img_1 or house.img_2 or house.img_3 or house.img_4 or house.img_5 or house.img_6 %}
-<div class="col-xs-12">
-	<div class="row">
-		{% if house.img_1 %}
-		<div class="col-md-2">
-			<a href="{{ house.img_1.url }}">
-				<img src="{{ house.img_1.url }}">
-			</a>
-				</div>
-				{% endif %} {% if house.img_2 %}
-				<div class="col-md-2">
-					<a href="{{ house.img_2.url }}">
-				<img src="{{ house.img_2.url }}">
-			</a>
-				</div>
-				{% endif %} {% if house.img_3 %}
-				<div class="col-md-2">
-					<a href="{{ house.img_3.url }}">
-				<img src="{{ house.img_3.url }}">
-			</a>
-				</div>
-				{% endif %} {% if house.img_4 %}
-				<div class="col-md-2">
-					<a href="{{ house.img_4.url }}">
-				<img src="{{ house.img_4.url }}">
-			</a>
-				</div>
-				{% endif %} {% if house.img_5 %}
-				<div class="col-md-2">
-					<a href="{{ house.img_5.url }}">
-				<img src="{{ house.img_5.url }}">
-			</a>
-				</div>
-				{% endif %} {% if house.img_6 %}
-				<div class="col-md-2">
-					<a href="{{ house.img_6.url }}">
-				<img src="{{ house.img_6.url }}">
-			</a>
-				</div>
-				{% endif %}
-			</div>
-		</div>
-		{% endif %}
-	
+		            <h1 style="text-align:center;">{{ house.title }}</h1>
+	        <img class="card-img-top" style="width: 100%;" src="{{ house.main_img.url }}" alt="{{ house.title }}" />            
+            <div class="col-xs-12" style="background-color: lavender; padding: 25px; font-size: large; font-family: cursive;" >
+            <div class="col-xs-6"><p><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms {{ house.bedrooms }}</p></div>
+           	<div class="col-xs-6"><p><i class="fa fa-bath" aria-hidden="true"></i> Bathrooms {{ house.bathrooms }}</p></div>
+           	<div class="col-xs-6"><p><i class="fa fa-car" aria-hidden="true"></i> Garage {{ house.garage }}</p></div>
+            <div class="col-xs-6"><p><i class="fa fa-plus-square-o" aria-hidden="true"></i> Square Feet:- {{ house.square_feet }}</p></div>
+           	<div class="col-xs-6"><p><i class="fa fa-eur" aria-hidden="true"></i> Price {{ house.price }}</p></div>
+           	<div class="col-xs-12"><p><i class="fa fa-map-marker" aria-hidden="true"></i> Address {{ house.address }} {{ house.zipcode }}</p></div>
+            <div class="col-xs-2"><p>{{ house.img_1 }}</p></div>
+            <div class="col-xs-2"><p>{{ house.img_2 }}</p></div>
+            <div class="col-xs-2"><p>{{ house.img_3 }}</p></div>
+            <div class="col-xs-2"><p> {{ house.img_4 }}</p></div>
+            <div class="col-xs-2"><p >{{ house.img_5 }}</p></div>
+            <div class="col-xs-12" >
+             <p class="listing-description"><i class="fa fa-align-justify" aria-hidden="true"></i> Description:- {{ house.description }}</p>
+             </div>
+             <div class="col-xs-12"><p><i class="fa fa-user" aria-hidden="true"></i> Owner {{ house.seller }}</p></div>
+      </div> 
+      </div>
 </section>
-<section class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<h2>Property Full Address</h2>
-			<hr/>
-			<div class="col-xs-12">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="row">
-							<div class="col-xs-12">
-								<p class=""><span>Address:</span> {{ house.address }}</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<p class=""><span>City:</span> {{ house.city }}</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<p class=""><span>Postcode:</span> {{ house.zipcode }}</p>
-							</div>
-						</div>
-					</div>
-					<!-- Google maps -->
-					<div id="google-map" class=" col-md-6 card"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Description of House -->
-<section class="container">
-	<h2 class="">Property Description</h2>
-	<hr/>
-	<div class="row">
-		<div class="coll-md-11">
-			<p class="">
-				{{ house.description }}
-			</p>
-		</div>
-	</div>
-</section>
+<hr/>
 <!-- Contact or Edit -->
 <section class="container" style="text-align: center;">
 	<div class="row">
-		<div class="col-xs-6 btn btn-success">
-			<a href="{% url 'addhouse' user.id %}" <i class="fas fa-angle-double-right"></i> Back</a>
+		<div class="col-xs-3 btn btn-success"  style="float:left">
+			<a href="{% url 'addhouse' user.id %}" <i class="fa fa-angle-double-left" aria-hidden="true"></i></i> Back</a>
 		</div>
-		<div class="col-xs-6 btn btn-success">
-			<a href="{% url 'pay_fee' user.id house.id %}">Pay Fee <i></i></a>
+		<div class="col-xs-3 btn btn-success" style="float:right">
+			<a href="{% url 'pay_fee' user.id house.id %}">Pay Fee <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 		</div>
 	</div>
 </section>

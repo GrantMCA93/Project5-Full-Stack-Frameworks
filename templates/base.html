@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom/footer.css' %}">
+        <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_cB800O5kK9g8jFnOQcPyU");
+   })();
+</script>
     {% block head_js %} {% endblock head_js %}
     <title>Spanish Homes</title>
 </head>
@@ -20,7 +26,7 @@
             <!-- Fixed masthead -->
             {% block nav %}
             <!-- Navigation -->
-            {% include "partials/_navbar.html" %} {% endblock nav %} {% if messages %}
+            {% include "partials/navbar.html" %} {% endblock nav %} {% if messages %}
             <div class="alert alert-success" style="width: 100%;">
                 <div class="messages">
                     {% for message in messages %} {{ message }} {% endfor %}
@@ -34,6 +40,7 @@
             {% if user.is_authenticated %}
             <!-- User messages modal -->
             {% include "partials/modals/confirm-log-out.html" %} 
+            {% include "partials/modals/_user_messages_modal.html" %}
             {% endif %}
             {% block modals %} 
             {% endblock modals %} 
@@ -46,9 +53,10 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 {% block js %}
-<!-- Stripe JS -->
-<script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+<!-- Stripe JS --><script src="https://js.stripe.com/v2/" type="text/javascri
+pt"></script>
 <script type="text/javascript">
 	//<![CDATA[
 	Stripe.publishableKey = '{{ publishable }}';

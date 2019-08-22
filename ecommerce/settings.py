@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'storages',
     'bootstrap4',
     'listings.apps.ListingsConfig',
+    'enquiries.apps.EnquiriesConfig',
 ]
 
 MIDDLEWARE = [

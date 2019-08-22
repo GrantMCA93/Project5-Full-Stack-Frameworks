@@ -12,6 +12,8 @@ from enquiries.forms import EnquiryForm
 
 stripe.api_key = settings.STRIPE_SECRET
 
+
+
 def house(request, house_id):
     """
     Main route for a single house
@@ -309,4 +311,7 @@ def search_by_user(request, user_id):
         "listings": paged_listings
     }
     return render(request, "houses.html", args)
+
+
+
 

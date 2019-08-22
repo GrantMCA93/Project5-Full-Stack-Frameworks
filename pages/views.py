@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from django import forms
 from django.shortcuts import redirect
-from django.contrib import messages
 from django.contrib.auth.models import User
 
 from listings.models import Listing
@@ -30,4 +29,6 @@ def contact(request):
     
 def contact_thank_you_message(request):
     return render(request, "contact_thank_you_message.html")
+    
+
     
