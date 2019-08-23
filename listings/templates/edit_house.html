@@ -11,7 +11,7 @@
 	<fieldset class="form-group">
 					<legend class="col-xs-12">Title of the property <span >*</span></legend>
 					<hr>
-				<div class="form-row field-name">
+				<div class="field-name">
 					<div>
 						<legend class="required" for="id_name">Property Name:</legend>
                     {% bootstrap_field placeholder='' show_label=False field=form.title %}					
@@ -20,7 +20,7 @@
 			</fieldset>
 			<!--- Property Address --->
 			<fieldset>
-				<div class="form-row field-description">
+				<div class="field-description">
 					<legend class="required" for="id_address">Address:</legend>
 					<div class="row">
 						<div class="col-md-12">
@@ -28,7 +28,7 @@
 						</div>
 						<div class="col-md-4">
 							<label for="city">City</label><span style="color: red !important; display: inline; float: none;">*</span>
-							<select name="city" class="form-control">
+							<select name="city" class="form-control select-height">
 								<option value="andalucia">Andalucia</option>
 								<option value="almeria">Almeria</option>
 								<option value="alcudia">Alcudia</option>
@@ -118,24 +118,24 @@
 		<legend class="required" for="id_propertyimages">Property Images</legend>
 		<div class="row">
 			<div class="col-md-6">
-				<div class="row justify-content-around">
+				<div class="row">
 					<label for="main_img">Image 1<span style="color: red !important; display: inline; float: none;">*</span></label> {% bootstrap_field layout='horizontal' placeholder='' show_label=False field=form.main_img %}
 				</div>
-				<div class="row justify-content-around">
+				<div class="row">
 					<label for="main_img">Image 2</label> {% bootstrap_field placeholder='' show_label=False field=form.img_1 %}
 				</div>
-				<div class="row justify-content-around">
+				<div class="row">
 					<label for="main_img">Image 3</label> {% bootstrap_field placeholder='' show_label=False field=form.img_2 %}
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="row justify-content-around">
+				<div class="row">
 					<label for="main_img">Image 4</label> {% bootstrap_field placeholder='' show_label=False field=form.img_3 %}
 				</div>
-				<div class="row justify-content-around">
+				<div class="row">
 					<label for="main_img">Image 5</label> {% bootstrap_field placeholder='' show_label=False field=form.img_4 %}
 				</div>
-				<div class="row justify-content-around">
+				<div class="row">
 					<label for="main_img">Image 6</label> {% bootstrap_field placeholder='' show_label=False field=form.img_5 %}
 				</div>
 			</div>
@@ -150,7 +150,7 @@
 		</div>
 	</fieldset>
 				{% buttons %}
-				<button type="submit" class="btn btn-success float-right">Next <i class="fas fa-angle-double-right"></i></button>				
+				<button type="submit" class="btn btn-success float-right">Next  <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>				
 				{% endbuttons %}
 				<!-- Store user ID -->
 				<input type="hidden" name="seller" value="{{ user.id }}">

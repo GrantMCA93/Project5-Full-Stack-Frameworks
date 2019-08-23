@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="{% static 'css/custom/enquiries.css' %}">
 {% endblock css %}
 <div class="container-fluid fixed-top modal" id="user-messages-modal">
-	<div class="container messages-wrapper row">
+	<div class="container messages-wrapper row" style="padding-bottom:40px;">
 		<div class="col-xs-12">
-			<div class="row justify-content-around">
+			<div class="row">
 				<h3 class="font-weight-bold text-success">Conversations
 					<hr>
 					<input type="hidden" name="user_id" value="{{ user.id }}">

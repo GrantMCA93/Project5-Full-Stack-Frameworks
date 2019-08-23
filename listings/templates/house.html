@@ -5,7 +5,7 @@
 
 <section class="container" id="listings">
 <div id="house-btns" class="container">
-	<div class="row justify-content-around">
+	<div class="row">
             <h1 style="text-align:center;">{{ house.title }}</h1>
 	        <img class="card-img-top" style="width: 100%;" src="{{ house.main_img.url }}" alt="{{ house.title }}" />            
             <div class="col-xs-12" style="background-color: lavender; padding: 25px; font-size: large; font-family: cursive;" >
@@ -27,7 +27,7 @@
            
 
 <div id="house-btns" class="col-xs-12 container">
-	<div class="row justify-content-around">
+	<div class="row">
 		{% if user.is_authenticated and user == house.seller %}
 			<button class="btn btn-danger"  type="button" data-toggle="modal" data-target="#delete-house">Delete listing</button>
 			<a href="{% url 'edit_house' user.id house.id %}" class="btn btn-warning">Edit listing</a>

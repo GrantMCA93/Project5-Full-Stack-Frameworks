@@ -83,3 +83,11 @@ caption p {
 }
 
 
+.form-group {
+    margin-bottom: 15px;
+    width: 100%
+}
+
+.select-height{
+    height: 38px !important;
+}

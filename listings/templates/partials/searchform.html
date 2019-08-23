@@ -1,13 +1,19 @@
-<div id="search-form" class="container">
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/searchform.css' %}">
+{% endblock css %} 
+<section class="container">
+<div id="search-form" >
 	<form action="{% url 'search' %}">
-		<div class="row">
+		<div class="row padding-bottom-30px">
 			<div class="col-md-8">
 				<label class="sr-only">Keywords</label>
 				<input typle="text" name="keywords" class="form-control" placeholder="keywords">
-			</div>
+				</div>
 			<div class="col-md-4">
 				<label class="sr-only">City</label>
-				<select name="city" class="form-control">
+				<select name="city" class="form-control select-height">
                 				<option selected="true" disabled>City</option>
 								<option value="andalucia">Andalucia</option>
 								<option value="almeria">Almeria</option>
@@ -66,10 +72,10 @@
 							</select>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" style="padding-bottom: 30px;">
 			<div class="col-md-4">
 				<label class="sr-only">Bedrooms</label>
-				<select name="bedrooms" class="form-control">
+				<select name="bedrooms" class="form-control select-height">
 					<option selected="true" disabled>Bedrooms</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -85,7 +91,7 @@
 			</div>
 			<div class="col-md-4">
 				<label class="sr-only">Bathrooms</label>
-				<select name="bathrooms" class="form-control">
+				<select name="bathrooms" class="form-control select-height">
 					<option selected="true" disabled>Bathrooms</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -100,7 +106,7 @@
 				</select>
 			</div>
 			<div class="col-md-4">
-				<select name="price" class="form-control" id="type">
+				<select name="price" class="form-control select-height" id="type">
 					<option selected="true" disabled>Max Price</option>
 					<option value="100000">&#36; 100 000</option>
 					<option value="200000">&#36; 200 000</option>
@@ -116,5 +122,7 @@
 			</div>
 		</div>
 		<button class="btn btn-secondary btn-block" type="submit">Search</button>
+	</div>
 	</form>
 </div>
+</section>

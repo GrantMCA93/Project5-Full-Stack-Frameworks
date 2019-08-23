@@ -2,15 +2,16 @@
 
 
 <section class="container">
-<div class="card col-xs-12">	
-	<div class="row">
-			<h1 class="">Welcome {{ user.username|title }}</h1>
+	<div class="card col-xs-12">
+		<div class="row">
 			<p class="">
 				<a href="{% url 'edit_profile' %}">
 					<i class="fas fa-user-edit"></i>
 					<span class="text-success">Edit your profile</span>
 				</a>
 			</p>
+			<h1 class="">Welcome {{ user.username|title }}</h1>
+
 			<div>
 				<div class="row">
 					{% if user.img %}
@@ -19,7 +20,7 @@
 					</div>
 					{% else %}
 					<div class="col-md-6">
-						<img src="https://project5-full-stack-frameworks.s3-eu-west-1.amazonaws.com/media/images/profile_avatar.png"  alt="Profile picture">
+						<img src="https://project5-full-stack-frameworks.s3-eu-west-1.amazonaws.com/media/images/profile_avatar.png" alt="Profile picture" style="width:100%">
 					</div>
 					{% endif %}
 					<div class="col-md-6">
@@ -68,22 +69,17 @@
 		<div class="card col-xs-12">
 			{% if listings %}
 			<h1 class="">Your listings:</h1>
-			<hr/>
-				<div id="listings" class="row">
-					{% for house in listings %}
-{% include "partials/listings_small_display.html" %}
-					{% endfor %}
-				</div>
-			</div>
-			{% else %}
-			<h5 class="">You have not listed any houses yet!.</h5>
-			<p class="">
-				<a href="{% url 'addhouse' user.id %}" class="" style="color: #317eac;">
+			<hr/> {% include "partials/listings_small_display.html" %}
+		</div>
+		{% else %}
+		<h5 class="">You have not listed any houses yet!.</h5>
+		<p class="">
+			<a href="{% url 'addhouse' user.id %}" class="" style="color: #317eac;">
 					Add Listing!
 				</a>
-			</p>
-			{% endif %}
-		</div>
+		</p>
+		{% endif %}
+	</div>
 	</div>
 </section>
 {% endblock %}
