@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
 from listings import urls as urls_listings
+from enquiries import urls as urls_enquiries
 from pages import urls as urls_pages
 from listings import urls as urls_search
 from accounts import urls as urls_reset
@@ -31,6 +32,7 @@ urlpatterns = [
     url(r'^accounts/', include(urls_accounts)),
     url(r'^search/', include(urls_search)),
     url(r'^listings/', include(urls_listings)),
+    url(r'^enquiries/', include(urls_enquiries)),
     url(r'^pages/', include(urls_pages)),
     url(r'^reset/', include(urls_reset)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})

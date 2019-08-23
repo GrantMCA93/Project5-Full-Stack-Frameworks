@@ -4,8 +4,8 @@
 {% block content %}
 
 <section class="container" id="listings">
-<div id="house-btns" class="container pb-5">
-	<div class="row justify-content-around py-3">
+<div id="house-btns" class="container">
+	<div class="row justify-content-around">
             <h1 style="text-align:center;">{{ house.title }}</h1>
 	        <img class="card-img-top" style="width: 100%;" src="{{ house.main_img.url }}" alt="{{ house.title }}" />            
             <div class="col-xs-12" style="background-color: lavender; padding: 25px; font-size: large; font-family: cursive;" >
@@ -27,13 +27,13 @@
            
 
 <div id="house-btns" class="col-xs-12 container">
-	<div class="row justify-content-around py-3">
+	<div class="row justify-content-around">
 		{% if user.is_authenticated and user == house.seller %}
-			<button class="btn btn-danger my-2 my-sm-0"  type="button" data-toggle="modal" data-target="#delete-house">Delete listing</button>
+			<button class="btn btn-danger"  type="button" data-toggle="modal" data-target="#delete-house">Delete listing</button>
 			<a href="{% url 'edit_house' user.id house.id %}" class="btn btn-warning">Edit listing</a>
 		{% else %}
 		{% if user.is_authenticated%}
-			<button class="btn btn-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#listing-enquire-modal" >Contact {{ house.seller|title }}
+			<button class="btn btn-success" type="button" data-toggle="modal" data-target="#enquire-modal" >Contact {{ house.seller|title }}
 			</button>
 		{% else %}
 			<h5 class="text-center col-xs-12">You must me logged in to contact {{ house.seller|title }}</h5>
@@ -49,5 +49,5 @@
  </div>
 </section>
 {% include "partials/modals/delete_house.html" %}
-{% include "partials/modals/listing_enquire_modal.html" %}
+{% include "partials/modals/_enquire_modal.html" %}
 {% endblock %}

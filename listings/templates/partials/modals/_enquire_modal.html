@@ -1,5 +1,5 @@
 {% load bootstrap4 %}
-<div class="modal fade" id="listing-enquire-modal" tabindex="-1" role="dialog" aria-labelledby="delete-house" aria-hidden="true">
+<div class="modal fade" id="enquire-modal" tabindex="-1" role="dialog" aria-labelledby="delete-house" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -9,7 +9,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<form method="POST" action="{% url 'send_enquire_message' user.id house.id %}" >
+				<form method="POST" action="{% url 'send_enquire' user.id house.id %}" >
 					{% csrf_token %}	
 					{% bootstrap_field show_label=False field=form.message %}
 					{% bootstrap_field field=form.viewing %}

@@ -71,16 +71,6 @@ caption p {
     word-wrap: break-word;
 }
 
-.row{
-    margin-right: 0px;
-    margin-left: 0px;
-}
-
-.row.row-flex {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
 
 .panel-default {
     border-color: transparent;

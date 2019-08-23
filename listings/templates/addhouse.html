@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %}
 
 
-<section class="container" style="width: 100%;">
-
+<section class="container" >
+		<div class="row">
+			<div class="col-xs-12">
 			<div>
 				<h4>User Listing</h4>
 			</div>
@@ -114,8 +115,9 @@
 			</div>
 			</fieldset>
 			<!--- Property Images --->
-			<fieldset>
+			<fieldset style="margin-right: 30px; margin-left: 30px;">
 				<legend class="required" for="id_propertyimages">Property Images</legend>
+			
 				<div class="row">
 					<div class="col-md-6">
 						<div class="row justify-content-around">
@@ -140,6 +142,7 @@
 						</div>
 					</div>
 				</div>
+		
 			</fieldset>
 			<!--- Property Description --->
 			<fieldset>
@@ -157,6 +160,9 @@
 
 
 		</div>
+		</div>
+	</div>
+
 
 </section>
 

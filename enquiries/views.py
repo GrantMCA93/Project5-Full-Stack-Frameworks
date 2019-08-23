@@ -12,7 +12,7 @@ from listings.views import house
 
 
 @login_required
-def send_enquire_message(request, user_id, house_id):
+def send_enquire(request, user_id, house_id):
     if request.method == 'POST':
         form = EnquiryForm(request.POST)
         if form.is_valid():

@@ -4,10 +4,10 @@
 <link rel="stylesheet" href="{% static 'css/custom/enquiries.css' %}">
 {% endblock css %}
 <div class="container-fluid fixed-top modal" id="user-messages-modal">
-	<div class="messages-wrapper row h-100">
-		<div class="col-12">
+	<div class="container messages-wrapper row">
+		<div class="col-xs-12">
 			<div class="row justify-content-around">
-				<h3 class="pt-5 font-weight-bold text-success">Conversations
+				<h3 class="font-weight-bold text-success">Conversations
 					<hr>
 					<input type="hidden" name="user_id" value="{{ user.id }}">
 					<input type="hidden" name="conversations_id" value="-1,">
@@ -15,10 +15,10 @@
 			</div>
 			<!-- Inner User Messages -->
 			<div id="message-inner" class="row">
-				<div class="col-12 loader">
-					<div class="row justify-content-center py-5">
+				<div class="col-xs-12 loader">
+					<div class="row justify-content-center">
 						<i class="fas fa-cloud-download-alt fa-10x text-secondary"></i>
-						<h4 class="col-12 text-center font-weight-bold py-3">Getting your messages...</h4>
+						<h4 class="col-xs-12 text-center font-weight-bold">Getting your messages...</h4>
 					</div>				
 				</div>
 			</div>
