@@ -6,7 +6,7 @@ from listings.models import Listing
 from accounts.models import UserProfile
 from django.contrib.auth.decorators import login_required
 from django import forms
-from .forms import UserProfileForm, UserLoginForm, EditUserForm
+from .forms import UserProfileForm, UserLoginForm, EditProfileForm, EditUserForm
 
 
 
@@ -76,16 +76,21 @@ def edit_profile(request):
     """
     if request.method == 'POST':
         user_form = EditUserForm(request.POST, instance=request.user)
-        if user_form.is_valid():
+        profile_form = EditProfileForm(
+            request.POST, instance=request.user.userprofile)
+        if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
+            profile_form.save()
             messages.success(request, 'Your profile was successfully updated!')
             return redirect('profile')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
         user_form = EditUserForm(instance=request.user)
+        profile_form = EditProfileForm(instance=request.user.userprofile)
     args = {
         "user_form": user_form,
+        "profile_form": profile_form,
     }
     return render(request, "edit_profile.html", args)
 
