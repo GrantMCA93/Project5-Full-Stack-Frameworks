@@ -61,3 +61,7 @@ Messages modal
 .dropdown-message-delete {
     top: 1.5rem;
 }
+
+.user_messages-padding-bottom{
+	padding-bottom:40px;
+}

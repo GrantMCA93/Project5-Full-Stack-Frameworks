@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-    <form method="POST" action="{% url 'register' %}" class="accountform" style="padding: 30px; width:100%;">
-        <fieldset class="form-group" style="min-width: 100%;">
+    <form method="POST" action="{% url 'register' %}" class="accountform login-reg-form-padding">
+        <fieldset class="form-group"></fieldset>
             <legend>Create a new account</legend>
             <p>Already got an account? <a href="{% url 'login' %}">Sign In</a></p>
             {% csrf_token %}

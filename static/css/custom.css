@@ -105,3 +105,52 @@ select.form-control:not([size]):not([multiple]) {
     display:contents;
 }
 }
+
+.login-reg-form-padding{
+    padding: 30px;
+    width:100%;
+}
+
+.h1-text-align-center{
+    text-align:center;
+    width:100%;
+}
+
+.width-100{
+    width: 100%;
+}
+
+.house-styling{
+    background-color: lavender;
+    padding: 25px;
+    font-size: large;
+    font-family: cursive;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+.color-blue{
+    color: blue;
+}
+
+.padding0-right-left{
+    padding-right:0px;
+    padding-left:0px;
+}
+
+.index-alert-succes{
+    width: 100%;
+    margin-top:-24px;
+}
+
+.footer-color-margins{
+    margin-top: 0px;
+    color:white;
+}
+
+.addhouse-label{
+    color: red !important;
+    display: inline; float: none;
+}

@@ -1,6 +1,5 @@
-{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
-
-
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/profile.css' %}"> {% endblock css %}
 <section class="container">
 	<div class="card col-xs-12">
 		<div class="row">
@@ -20,7 +19,7 @@
 					</div>
 					{% else %}
 					<div class="col-md-6">
-						<img src="https://project5-full-stack-frameworks.s3-eu-west-1.amazonaws.com/media/images/profile_avatar.png" alt="Profile picture" style="width:100%">
+						<img src="https://project5-full-stack-frameworks.s3-eu-west-1.amazonaws.com/media/images/profile_avatar.png" alt="Profile picture" class="profile-avatar">
 					</div>
 					{% endif %}
 					<div class="col-md-6">
@@ -34,23 +33,23 @@
 							</li>
 							{% if user.email %}
 							<li>
-								<span >Your email:</span> {{ user.email }}
+								<span>Your email:</span> {{ user.email }}
 							</li>
 							{% else %}
 							<li>
-								<span >Your email:</span> You did not provide your email address.
+								<span>Your email:</span> You did not provide your email address.
 							</li>
 							{% endif %} {% if user_profile.phone %}
 							<li>
-								<span >Your phone:</span> {{ user_profile.phone }}
+								<span>Your phone:</span> {{ user_profile.phone }}
 							</li>
 							{% else %}
 							<li>
-								<span >Your phone:</span> You have not yet added a phone number.
+								<span>Your phone:</span> You have not yet added a phone number.
 							</li>
 							{% endif %}
 							<li>
-								<span >Joined:</span> {{ user.date_joined }}
+								<span>Joined:</span> {{ user.date_joined }}
 							</li>
 							{% if user_profile.description %}
 							<li>
@@ -65,21 +64,27 @@
 	</div>
 	<hr>
 	</div>
-	<div class="row">
-		<div class="card col-xs-12">
-			{% if listings %}
-			<h1>Your listings:</h1>
-			<hr/> {% include "partials/listings_small_display.html" %}
-		</div>
-		{% else %}
-		<h5>You have not listed any houses yet!.</h5>
-		<p>
-			<a href="{% url 'addhouse' user.id %}"  style="color: #317eac;">
-					Add Listing!
-				</a>
-		</p>
-		{% endif %}
 	</div>
+	<div class="container">
+		<div class="card col-xs-12">
+			<div class="row">
+
+				{% if listings %}
+				<h1>Your listings:</h1>
+				<hr/> {% include "partials/listings_small_display.html" %}
+
+				<div class="col-xs-12">
+					{% else %}
+					<h5>You have not listed any houses yet!.</h5>
+				</div>
+				<div class="col-xs-12">
+					<p><a href="{% url 'addhouse' user.id %}" class="profile-link-color">
+					Add Listing!
+				</a></p>
+				</div>
+			</div>
+			{% endif %}
+		</div>
 	</div>
 </section>
 {% endblock %}

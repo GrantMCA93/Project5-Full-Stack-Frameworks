@@ -18,12 +18,12 @@
 </head>
 
 <body>
-    <div class="col-xs-12" style="padding-right:0px; padding-left:0px;">
+    <div class="col-xs-12 padding0-right-left">
             <!-- Fixed masthead -->
             {% block nav %}
             <!-- Navigation -->
             {% include "partials/navbar.html" %} {% endblock nav %} {% if messages %}
-            <div class="alert alert-success" style="width: 100%; margin-top:-24px;">
+            <div class="alert alert-success index-alert-succes">
                 <div class="messages">
                     {% for message in messages %} {{ message }} {% endfor %}
                 </div>

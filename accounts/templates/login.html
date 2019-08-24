@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
 
 <div>
-    <form method="post" style="padding: 30px; width:100%;">
+    <form method="post" class="login-reg-form-padding">
         {% csrf_token %}
          {{  form | as_bootstrap }}
         <div>

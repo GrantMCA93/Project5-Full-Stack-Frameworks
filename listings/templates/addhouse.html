@@ -1,6 +1,5 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %}
-
-
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/addhouse.css' %}"> {% endblock css %}
 <section class="container" >
 		<div class="row">
 			<div class="col-xs-12">
@@ -25,10 +24,10 @@
 							<legend class="required" for="id_address">Address:</legend>
 							<div class="row">
 								<div class="col-md-12">
-									<label for="address">Address</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.address %}
+									<label for="address">Address</label><span class="addhouse-label">*</span> {% bootstrap_field placeholder='' show_label=False field=form.address %}
 								</div>
 								<div class="col-md-4">
-									<label for="city">City</label><span style="color: red !important; display: inline; float: none;">*</span>
+									<label for="city">City</label><span class="addhouse-label">*</span>
 									<select name="city" class="form-control select-height">
 								<option value="andalucia">Andalucia</option>
 								<option value="almeria">Almeria</option>
@@ -87,7 +86,7 @@
 							</select>
 								</div>
 								<div class="col-md-6">
-									<label for="zipcode">Postcode</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.zipcode %}
+									<label for="zipcode">Postcode</label><span class="addhouse-label">*</span> {% bootstrap_field placeholder='' show_label=False field=form.zipcode %}
 								</div>
 							</div>
 						</div>
@@ -97,31 +96,31 @@
 						<legend class="required" for="id_propertyinfo">Property Info</legend>
 						<div class="row">
 							<div class="col-md-6">
-								<label for="property">Property Price</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.price %}
+								<label for="property">Property Price</label><span class="addhouse-label">*</span> {% bootstrap_field placeholder='' show_label=False field=form.price %}
 							</div>
 							<div class="col-md-6">
-								<label for="property">Number of square foot</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.square_feet %}
+								<label for="property">Number of square foot</label><span class="addhouse-label">*</span> {% bootstrap_field placeholder='' show_label=False field=form.square_feet %}
 							</div>
 							<div class="col-md-6">
-								<label for="property">Number of Bedrooms</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bedrooms %}
+								<label for="property">Number of Bedrooms</label><span class="addhouse-label">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bedrooms %}
 							</div>
 							<div class="col-md-6">
-								<label for="property">Number of Bathrooms</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bathrooms %}
+								<label for="property">Number of Bathrooms</label><span class="addhouse-label">*</span> {% bootstrap_field placeholder='' show_label=False field=form.bathrooms %}
 							</div>
 							<div class="col-md-6">
-								<label for="property">Number of Garages</label><span style="color: red !important; display: inline; float: none;">*</span> {% bootstrap_field placeholder='' show_label=False field=form.garage %}
+								<label for="property">Number of Garages</label><span class="addhouse-label">*</span> {% bootstrap_field placeholder='' show_label=False field=form.garage %}
 							</div>
 						</div>
 			</div>
 			</fieldset>
 			<!--- Property Images --->
-			<fieldset style="margin-right: 30px; margin-left: 30px;">
+			<fieldset class="addhouse-propertyimage-margins">
 				<legend class="required" for="id_propertyimages">Property Images</legend>
 			
 				<div class="row">
 					<div class="col-md-6">
 						<div class="row">
-							<label for="main_img">Image 1<span style="color: red !important; display: inline; float: none;">*</span></label> {% bootstrap_field layout='horizontal' placeholder='' show_label=False field=form.main_img %}
+							<label for="main_img">Image 1<span class="addhouse-label">*</span></label> {% bootstrap_field layout='horizontal' placeholder='' show_label=False field=form.main_img %}
 						</div>
 						<div class="row">
 							<label for="main_img">Image 2</label> {% bootstrap_field placeholder='' show_label=False field=form.img_1 %}

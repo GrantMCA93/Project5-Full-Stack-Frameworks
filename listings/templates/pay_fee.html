@@ -1,6 +1,5 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %}
-
-
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap4 %} {% block content %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/custom/pay_fee.css' %}"> {% endblock css %}
 <section id="pay_fee" class="container">
     <div class="row justify-content-center">
         <div class="col-xs-md-6">
@@ -56,9 +55,9 @@
 </section>
 <section class="container">
     <div class="row">
-        <h1 style="text-align:center;">{{ house.title }}</h1>
-        <img class="card-img-top" style="width: 100%;" src="{{ house.main_img.url }}" alt="{{ house.title }}" />
-        <div class="col-xs-12" style="background-color: lavender; padding: 25px; font-size: large; font-family: cursive;">
+        <h1 class="h1-text-align-center">{{ house.title }}</h1>
+        <img class="card-img-top width-100" src="{{ house.main_img.url }}" alt="{{ house.title }}" />
+        <div class="col-xs-12 house-styling">
             <div class="col-xs-6">
                 <p><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms {{ house.bedrooms }}</p>
             </div>

@@ -2,9 +2,9 @@
 
 <section class="container">
 	<div class="row">
-		            <h1 style="text-align:center;">{{ house.title }}</h1>
-	        <img class="card-img-top" style="width: 100%;" src="{{ house.main_img.url }}" alt="{{ house.title }}" />            
-            <div class="col-xs-12" style="background-color: lavender; padding: 25px; font-size: large; font-family: cursive;" >
+		            <h1 class="h1-text-align-center">{{ house.title }}</h1>
+	        <img class="card-img-top width-100" src="{{ house.main_img.url }}" alt="{{ house.title }}" />            
+            <div class="col-xs-12" class="addhouse-label" >
             <div class="col-xs-6"><p><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms {{ house.bedrooms }}</p></div>
            	<div class="col-xs-6"><p><i class="fa fa-bath" aria-hidden="true"></i> Bathrooms {{ house.bathrooms }}</p></div>
            	<div class="col-xs-6"><p><i class="fa fa-car" aria-hidden="true"></i> Garage {{ house.garage }}</p></div>
@@ -25,12 +25,12 @@
 </section>
 <hr/>
 <!-- Contact or Edit -->
-<section class="container" style="text-align: center;">
+<section class="container text-align-center">
 	<div class="row">
 		<div class="col-xs-3 btn btn-success"  style="float:left">
 			<a href="{% url 'addhouse' user.id %}" <i class="fa fa-angle-double-left" aria-hidden="true"></i></i> Back</a>
 		</div>
-		<div class="col-xs-3 btn btn-success" style="float:right">
+		<div class="col-xs-3 btn btn-success" style="float:right; right: -50%;">
 			<a href="{% url 'pay_fee' user.id house.id %}">Pay Fee <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 		</div>
 	</div>
