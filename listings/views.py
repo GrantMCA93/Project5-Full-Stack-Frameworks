@@ -227,7 +227,6 @@ def search(request):
         city = request.GET['city']
         if city:
             listings = listings.filter(city__iexact=city)
-            p_base = p_base + f'city={city}&'
 
     if 'bedrooms' in request.GET:
         bedrooms = request.GET['bedrooms']
