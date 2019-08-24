@@ -9,19 +9,8 @@ from enquiries.forms import ContactForm
 
 
 def index(request):
-    """ 
-    View for index.html (landing page)
-    """
-    listings = Listing.objects.exclude(
-        is_published=False).order_by("-list_date")[:3]
 
-    args = {
-        "listings": listings,
-      
-        
-    }  
-
-    return render(request, "index.html", args)
+    return render(request, "index.html")
     
 def contact(request):
 

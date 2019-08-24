@@ -142,14 +142,12 @@
 						</div>
 					</div>
 				</div>
-		
 			</fieldset>
 			<!--- Property Description --->
 			<fieldset>
 				<legend class="required" for="id_propertydescription">Property Description</legend>
 				<div class="row">
 					{% bootstrap_field placeholder='' show_label=False field=form.description %}
-
 				</div>
 			</fieldset>
 			{% buttons %}
@@ -157,15 +155,8 @@
 			<!-- Store user ID -->
 			<input type="hidden" name="seller" value="{{ user.id }}">
 			</form>
-
-
 		</div>
 		</div>
 	</div>
-
-
 </section>
-
-
-
 {% endblock %}

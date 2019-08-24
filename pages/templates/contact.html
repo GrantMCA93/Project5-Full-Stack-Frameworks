@@ -20,7 +20,7 @@
             <textarea class="form-control" id="textarea" rows="5" placeholder="Comments and Special Request (Optional)"></textarea>
         </div>
         {% csrf_token %}
-        <button type="submit" class="btn btn-success center-block btn-lg" value="Go to {% url 'contact_thank_you_message' %}">Submit</button>
+        <button type="submit" class="btn btn-success center-block btn-lg" onclick="window.location='{% url 'contact_thank_you_message' %}';" >Send</button>
     </div>
 </form>
 </section>
