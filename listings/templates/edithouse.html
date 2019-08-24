@@ -2,21 +2,21 @@
 <link rel="stylesheet" href="{% static 'css/custom/addhouse.css' %}"> {% endblock css %}
 
 <section class="container">
-    <div class="row" >
-        		<form enctype="multipart/form-data" action="" method="POST">
+	<div class="row">
+		<form enctype="multipart/form-data" action="" method="POST">
 			{% csrf_token %}
-			<!--- Property Name --->
-	<fieldset class="form-group">
-					<legend class="col-xs-12">Title of the property <span >*</span></legend>
-					<hr>
+			<!-- Property Name -->
+			<fieldset class="form-group">
+				<legend class="col-xs-12">Title of the property <span>*</span></legend>
+				<hr>
 				<div class="field-name">
 					<div>
 						<legend class="required" for="id_name">Property Name:</legend>
-                    {% bootstrap_field placeholder='' show_label=False field=form.title %}					
-                    </div>
+						{% bootstrap_field placeholder='' show_label=False field=form.title %}
+					</div>
 				</div>
 			</fieldset>
-			<!--- Property Address --->
+			<!-- Property Address -->
 			<fieldset>
 				<div class="field-description">
 					<legend class="required" for="id_address">Address:</legend>
@@ -89,7 +89,7 @@
 					</div>
 				</div>
 			</fieldset>
-			<!--- Property Information --->
+			<!-- Property Information -->
 			<fieldset>
 				<legend class="required" for="id_propertyinfo">Property Info</legend>
 				<div class="row">
@@ -111,7 +111,7 @@
 				</div>
 	</div>
 	</fieldset>
-	<!--- Property Images --->
+	<!-- Property Images -->
 	<fieldset>
 		<legend class="required" for="id_propertyimages">Property Images</legend>
 		<div class="row">
@@ -139,7 +139,7 @@
 			</div>
 		</div>
 	</fieldset>
-	<!--- Property Description --->
+	<!-- Property Description -->
 	<fieldset>
 		<legend class="required" for="id_propertydescription">Property Description</legend>
 		<div class="row">
@@ -147,13 +147,12 @@
 
 		</div>
 	</fieldset>
-				{% buttons %}
-				<button type="submit" class="btn btn-success float-right">Next  <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>				
-				{% endbuttons %}
-				<!-- Store user ID -->
-				<input type="hidden" name="seller" value="{{ user.id }}">
-			</form>
-    </div>
+	{% buttons %}
+	<button type="submit" class="btn btn-success float-right">Next  <i class="fa fa-angle-double-right" aria-hidden="true"></i></button> {% endbuttons %}
+	<!-- Store user ID -->
+	<input type="hidden" name="seller" value="{{ user.id }}">
+	</form>
+	</div>
 </section>
 
 {% endblock %}

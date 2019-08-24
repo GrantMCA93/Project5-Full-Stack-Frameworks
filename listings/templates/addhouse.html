@@ -9,7 +9,7 @@
 			<div id="content-main">
 				<form enctype="multipart/form-data" action="" method="POST">
 					{% csrf_token %}
-					<!--- Property Name --->
+					<!-- Property Name -->
 					<fieldset class="module aligned ">
 						<div class="field-name">
 							<div>
@@ -18,7 +18,7 @@
 							</div>
 						</div>
 					</fieldset>
-					<!--- Property Address --->
+					<!-- Property Address -->
 					<fieldset>
 						<div class="field-description">
 							<legend class="required" for="id_address">Address:</legend>
@@ -91,7 +91,7 @@
 							</div>
 						</div>
 					</fieldset>
-					<!--- Property Information --->
+					<!-- Property Information -->
 					<fieldset>
 						<legend class="required" for="id_propertyinfo">Property Info</legend>
 						<div class="row">
@@ -113,7 +113,7 @@
 						</div>
 			</div>
 			</fieldset>
-			<!--- Property Images --->
+			<!-- Property Images -->
 			<fieldset class="addhouse-propertyimage-margins">
 				<legend class="required" for="id_propertyimages">Property Images</legend>
 			
@@ -142,7 +142,7 @@
 					</div>
 				</div>
 			</fieldset>
-			<!--- Property Description --->
+			<!-- Property Description -->
 			<fieldset>
 				<legend class="required" for="id_propertydescription">Property Description</legend>
 				<div class="row">
@@ -156,6 +156,5 @@
 			</form>
 		</div>
 		</div>
-	</div>
 </section>
 {% endblock %}

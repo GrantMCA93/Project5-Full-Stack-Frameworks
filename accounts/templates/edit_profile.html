@@ -1,31 +1,27 @@
 {% extends "base.html" %} {% load bootstrap4 %} {% block content %}
-<!-- profile edit form -->
+<!-- form for editing profile  -->
 <section class="container">
-    <div class="row">
-        <div class="col-xs-12">
-            <form method="POST"  >
-                				<a href="{% url 'profile' %}">
+	<div class="row">
+		<div class="col-xs-12">
+			<form method="POST">
+				<a href="{% url 'profile' %}">
 					<i class="fa fa-user-edit"></i>
 					<span class="text-success">Back to Profile</span>
-				</a>
-                {% csrf_token %}
-                <fieldset>
-                    <legend>Edit Profile {{ user|title }}</legend>
+				</a> {% csrf_token %}
+				<fieldset>
+					<legend>Edit Profile {{ user|title }}</legend>
 					{% bootstrap_form user_form layout='horizontal' %}
 				</fieldset>
 				<p></p>
 				<p>You can change you password click
-				<a href="{% url 'password_change' %}" class="text-success font-weight-bold">here</a>.
-					<i class="fa fa-user-edit"></i>
-				</a>
-				</div>	
-								<div class="form-group text-right">
-					{% buttons %}
-					<button type="submit" class="btn btn-success">Submit changes</button>
-					{% endbuttons %}
-				</div>
-            </form>
-        </div>
-    </div>
+					<a href="{% url 'password_change' %}" class="text-success font-weight-bold">here</a>.
+
+					<div class="form-group text-right">
+						{% buttons %}
+						<button type="submit" class="btn btn-success">Submit changes</button> {% endbuttons %}
+					</div>
+			</form>
+		</div>
+	</div>
 </section>
 {% endblock %}
