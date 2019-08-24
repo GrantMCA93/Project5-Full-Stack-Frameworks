@@ -39,11 +39,6 @@ class EditUserForm(forms.ModelForm):
 		fields = ['username', 'email', 'first_name', 'last_name']
 
 
-class EditProfileForm(forms.ModelForm):
-
-	class Meta:
-		model = UserProfile
-		fields = ['description', 'phone']
 
 
 class UserRegistrationForm(UserCreationForm):
