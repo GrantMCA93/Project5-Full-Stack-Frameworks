@@ -14,6 +14,7 @@ The website allows the user the created there own account to an list there own h
 
 #UX
 This website is designed for people searching for their dream spanish home.
+The website is designed in a way that's its easy to interact with.
 
 Here is a list of other house listing websites a viewing when designing mine
 1.https://www.aplaceinthesun.com/spain
@@ -35,7 +36,12 @@ In addition, you may also use this section to discuss plans for additional featu
 Another feature idea
 
 #Technologies Used
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+
+1. 	Bootstrap ( https://getbootstrap.com/ ) 	Bootstrap was used to mobile-first design of the website.	
+2. JQuery (https://jquery.com/ ) 	JQuery is used to provide DOM manipulation.
+3. Python (https://www.python.org/ ) Python is used to automate precific tasks within the project.
+4. Json (https://www.json.org/) Json is used for transmitting data between the server and webb application. 
+5. Heroku ( https://www.heroku.com/home ) Heroku is used to Host the website.
 
 JQuery
 The project uses JQuery to simplify DOM manipulation.
