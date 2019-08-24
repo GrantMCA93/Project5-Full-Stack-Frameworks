@@ -1,14 +1,17 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404, reverse
-from django.contrib import messages, auth
-from django.template.context_processors import csrf
+from datetime import datetime
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from listings.forms import AddListingForm, PayFeeForm, EditListingForm
+from django.contrib import messages
+from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from enquiries.forms import EnquiryForm
 import stripe
 from listings.models import Listing
-from listings.forms import AddListingForm, PayFeeForm, EditListingForm
-from enquiries.forms import EnquiryForm
+
+
 
 stripe.api_key = settings.STRIPE_SECRET
 
@@ -222,16 +225,19 @@ def search(request):
         keywords = request.GET['keywords']
         if keywords:
             listings = listings.filter(description__icontains=keywords)
+            p_base = p_base + f'keywords={keywords}&'
 
     if 'city' in request.GET:
         city = request.GET['city']
         if city:
             listings = listings.filter(city__iexact=city)
+            p_base = p_base + f'city={city}&'
 
     if 'bedrooms' in request.GET:
         bedrooms = request.GET['bedrooms']
         if bedrooms:
             listings = listings.filter(bedrooms__lte=int(bedrooms))
+            p_base = p_base + f'bedrooms={bedrooms}&'
 
     if 'price' in request.GET:
         price = request.GET['price']
@@ -240,6 +246,7 @@ def search(request):
                 listings = listings.filter(price__gte=int(price))
             else:
                 listings = listings.filter(price__lte=int(price))
+            p_base = p_base + f'price={price}&'
 
     if len(listings) > 0:
         if len(listings) > 9:
