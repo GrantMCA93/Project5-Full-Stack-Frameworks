@@ -232,7 +232,6 @@ def search(request):
         bedrooms = request.GET['bedrooms']
         if bedrooms:
             listings = listings.filter(bedrooms__lte=int(bedrooms))
-            p_base = p_base + f'bedrooms={bedrooms}&'
 
     if 'price' in request.GET:
         price = request.GET['price']
@@ -241,7 +240,6 @@ def search(request):
                 listings = listings.filter(price__gte=int(price))
             else:
                 listings = listings.filter(price__lte=int(price))
-            p_base = p_base + f'price={price}&'
 
     if len(listings) > 0:
         if len(listings) > 9:
