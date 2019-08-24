@@ -26,7 +26,7 @@ class EnquiryForm(forms.ModelForm):
     """
 
     message = forms.CharField(min_length=20, widget=forms.Textarea)
-    viewing = forms.BooleanField(required=False, label="I am interested to book a viewing")
+    viewing = forms.BooleanField(required=False, label="I am interested in booking a viewing")
     new_to = forms.BooleanField(required=False)
 
     class Meta:

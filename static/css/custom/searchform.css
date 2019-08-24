@@ -1,6 +1,9 @@
+/*---- searchform  ----*/
 .searchform-box-sizing{
     -webkit-box-sizing: unset !important;
 }
+
+/*---- padding  ----*/
 
 .padding-bottom-30px{
     padding-bottom: 30px !important;

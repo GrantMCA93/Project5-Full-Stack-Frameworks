@@ -1,3 +1,4 @@
+/*---- background image  ----*/
 .background-image{
     background: url("https://project5-full-stack-frameworks.s3-eu-west-1.amazonaws.com/media/images/mansion-house.jpg") no-repeat center;
     width: 100%;
@@ -8,6 +9,7 @@
     min-height: 600px;
 }
 
+/*---- heading attributes ----*/
 .index-page-header{
     font-family: cursive;
     text-align: center;

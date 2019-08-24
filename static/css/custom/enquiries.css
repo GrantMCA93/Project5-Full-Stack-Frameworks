@@ -1,6 +1,6 @@
-/* 
-Messages modal
-*/
+ 
+/*---- Messages modal ----*/
+
 
 #user-messages-modal {
 	display: none;
@@ -44,6 +44,7 @@ Messages modal
 #user-messages-modal .col-md-10 .card-body {
 	display: none;
 }
+/*---- user message  ----*/
 
 #user-messages-modal p {
 	font-size: 1.1rem;
@@ -62,6 +63,15 @@ Messages modal
     top: 1.5rem;
 }
 
+/*---- padding  ----*/
+
 .user_messages-padding-bottom{
 	padding-bottom:40px;
+}
+
+/*---- fix to send messages modal----*/
+.form-check-input {
+    position: absolute !important;
+    margin-top: .3rem !important;
+    margin-left: -1.25rem !important;
 }

@@ -1,9 +1,11 @@
+/*---- Body ----*/
 body {
     font-family: Arial;
     padding-top: 100px;
     
 }
 
+/*---- Footer ----*/
 footer {
     margin-top: 40px;
     padding-top: 20px;
@@ -28,6 +30,8 @@ footer {
     margin: 0px;
 }
 
+/*---- link ----*/
+
 a {
     color: white;
     text-decoration: none;
@@ -36,6 +40,7 @@ a {
     text-decoration-color: initial;
 }
 
+/*---- pages container ----*/
 .container {
     margin-right: auto;
     margin-left: auto;
@@ -44,14 +49,24 @@ a {
     margin-bottom: 15px;
 }
 
+
+/*---- Navbar ----*/
 .icon-bar {
     background-color: #fff;
 }
 
+@media (max-width: 768px){
+.mobile-navbar {
+    display:contents;
+}
+}
+
+/*---- Padding of registration and password change pages ----*/
 .accountform {
     padding-top: 20px;
 }
 
+/*---- User-meeages button ----*/
 .badge {
     padding-left: 9px;
     padding-right: 9px;
@@ -60,51 +75,13 @@ a {
     border-radius: 9px;
 }
 
-.label-warning[href],
-.badge-warning[href] {
-    background-color: #c67605;
-}
 
-
-
-caption p {
-    word-wrap: break-word;
-}
-
-
-.panel-default {
-    border-color: transparent;
-    padding: 0 10px;
-}
-
-.panel-body {
-    height: 100%;
-    border: 1px solid #ddd;
-    padding: 0px;
-}
-
-
+/*---- width-100% ----*/
 .form-group {
     margin-bottom: 15px;
     width: 100%
 }
 
-.select-height{
-    height: 38px !important;
-}
-
-textarea.form-control {
-    height: auto !important;
-}
-
-select.form-control:not([size]):not([multiple]) {
-    height: 38px !important;
-}
-@media (max-width: 768px){
-.mobile-navbar {
-    display:contents;
-}
-}
 
 .login-reg-form-padding{
     padding: 30px;
@@ -120,6 +97,22 @@ select.form-control:not([size]):not([multiple]) {
     width: 100%;
 }
 
+
+/*---- overrided select option height ----*/
+.select-height{
+    height: 38px !important;
+}
+
+textarea.form-control {
+    height: auto !important;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: 38px !important;
+}
+
+/*---- adds style to house information  ----*/
+
 .house-styling{
     background-color: lavender;
     padding: 25px;
@@ -131,26 +124,32 @@ select.form-control:not([size]):not([multiple]) {
     text-align: center;
 }
 
+/*---- fixed color of link on contact thank you page nad password change confirm page  ----*/
 .color-blue{
     color: blue;
 }
 
+/*---- zero right left padding  ----*/
 .padding0-right-left{
     padding-right:0px;
     padding-left:0px;
 }
 
+/*---- fixed message position  ----*/
 .index-alert-succes{
     width: 100%;
     margin-top:-24px;
 }
 
+/*---- footer color  ----*/
 .footer-color-margins{
     margin-top: 0px;
     color:white;
 }
 
-.addhouse-label{
+/*---- required input  ----*/
+
+.house-label{
     color: red !important;
     display: inline; float: none;
 }
