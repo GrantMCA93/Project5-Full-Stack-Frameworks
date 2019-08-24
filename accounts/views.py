@@ -90,9 +90,6 @@ def edit_profile(request):
     return render(request, "edit_profile.html", args)
 
 
-
-
-
 def register(request):
     """A view that manages the registration form"""
     if request.user.is_authenticated:
@@ -129,9 +126,4 @@ def register(request):
 
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
-    
-
-    
-
-    
     
