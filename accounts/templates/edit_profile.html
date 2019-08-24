@@ -5,21 +5,19 @@
         <div class="col-xs-12">
             <form method="POST"  >
                 				<a href="{% url 'profile' %}">
-					<i class="fas fa-user-edit"></i>
+					<i class="fa fa-user-edit"></i>
 					<span class="text-success">Back to Profile</span>
 				</a>
                 {% csrf_token %}
                 <fieldset>
-                    <legend class="">Edit Profile {{ user|title }}</legend>
-
+                    <legend>Edit Profile {{ user|title }}</legend>
 					{% bootstrap_form user_form layout='horizontal' %}
 					{% bootstrap_form profile_form layout='horizontal' %}
-
 				</fieldset>
-				<p class=""></p>
-				<p class="">If you want to change your password
-					<i class="fas fa-user-edit"></i>
-					<span class="text-success">Edit your profile Password</span>
+				<p></p>
+				<p>You can change you password click
+				<a href="{% url 'password_change' %}" class="text-success font-weight-bold">here</a>.
+					<i class="fa fa-user-edit"></i>
 				</a>
 				</div>	
 								<div class="form-group text-right">

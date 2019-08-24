@@ -21,45 +21,34 @@
 					<div class="card-body text-center">
 						<div>
 							<h4>{{ house.title }}</h4>
-							<p class="">
-								<i class="fas fa-map-marker"></i> {{ house.city }}, {{ house.zipcode }}
+							<p>
+								<i class="fa fa-map-marker"></i> {{ house.city }}, {{ house.zipcode }}
 							</p>
 						</div>
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="{% url 'search_by_links' 'square_feet' %}">
-									<i class="fas fa-th-large"></i> Sqft: {{ house.square_feet }}
-								</a>
+									<i class="fa fa-th-large"></i> Sqft: {{ house.square_feet }}
+
 							</div>
 							<div class="col-xs-6">
-								<a href="{% url 'search_by_links' 'garage' %}">
-									<i class="fas fa-car"></i> Garage: {{ house.garage }}
-								</a>
+									<i class="fa fa-car"></i> Garage: {{ house.garage }}
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="{% url 'search_by_links' 'bedrooms' %}">
-									<i class="fas fa-bed"></i> Bedrooms: {{ house.bedrooms }}
-								</a>
+									<i class="fa fa-bed"></i> Bedrooms: {{ house.bedrooms }}
 							</div>
 							<div class="col-xs-6">
-								<a href="{% url 'search_by_links' 'bathrooms' %}">
-									<i class="fas fa-bath"></i> Bathrooms: {{ house.bathrooms }}
-								</a>
+									<i class="fa fa-bath"></i> Bathrooms: {{ house.bathrooms }}
 							</div>
 						</div>
 						<hr />
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="{% url 'houses' %}">
-									<i class="fas fa-clock"></i> {{ house.list_date | date }}
-								</a>
+									<i class="fa fa-clock"></i> {{ house.list_date | date }}
 							</div>
 							<div class="col-xs-6">
-								<a href="{% url 'search_by_user' house.seller.id %}">
-									<i class="fas fa-user"></i> {{ house.seller | title }}
-								</a>
+									<i class="fa fa-user"></i> {{ house.seller | title }}
 							</div>
 						</div>
 					</div>
@@ -129,17 +118,17 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-xs-12">
-							<p class=""><span class="font-weight-bold">Address:</span> {{ house.address }}</p>
+							<p><span class="font-weight-bold">Address:</span> {{ house.address }}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-12">
-							<p class=""><span class="font-weight-bold">City:</span> {{ house.city }}</p>
+							<p ><span class="font-weight-bold">City:</span> {{ house.city }}</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-12">
-							<p class=""><span class="font-weight-bold">Postcode:</span> {{ house.zipcode }}</p>
+							<p><span class="font-weight-bold">Postcode:</span> {{ house.zipcode }}</p>
 						</div>
 					</div>
 				</div>
@@ -153,7 +142,7 @@
 	<hr class="mb-5" />
 	<div class="row justify-content-center">
 		<div class="col-md-11 text-left">
-			<p class="">
+			<p>
 				{{ house.description }}
 			</p>
 		</div>

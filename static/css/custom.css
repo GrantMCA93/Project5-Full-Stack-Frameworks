@@ -80,6 +80,7 @@ caption p {
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
+    padding: 0px;
 }
 
 
@@ -90,4 +91,17 @@ caption p {
 
 .select-height{
     height: 38px !important;
+}
+
+textarea.form-control {
+    height: auto !important;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: 38px !important;
+}
+@media (max-width: 768px){
+.mobile-navbar {
+    display:contents;
+}
 }

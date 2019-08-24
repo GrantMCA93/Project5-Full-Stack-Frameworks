@@ -1,23 +1,23 @@
 <!-- Delete House l-->
 <div class="modal fade" id="delete-house" aria-labelledby="delete-house" aria-hidden="true">
-	<div class="" role="document">
-		<div class="" style="background-color: white;padding: 10px;">
-			<div class="">
-				<h5 class="">This will pernamently delete this listing</h5>				
+	<div role="document">
+		<div style="background-color: white;padding: 10px;">
+			<div>
+				<h5>This will pernamently delete this listing</h5>				
 				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">×</span>
 				</button>
 			</div>
 			{% if house.paid_fee %}
 			<div class="modal-body">
-				<p class="">This can not be undone!</p>
+				<p>This can not be undone!</p>
 				<br>
-				<p class="">No refunds can be issued!</p>
+				<p>No refunds can be issued!</p>
 			</div>
 			{% endif %}
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-danger" href="{% url 'delete_house' user.id house.id %}">Delete</a>
+				<a class="btn btn-danger" href="{% url 'deletehouse' user.id house.id %}">Delete</a>
 			</div>
 		</div>
 	</div>

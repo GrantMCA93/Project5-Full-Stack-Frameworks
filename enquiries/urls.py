@@ -8,12 +8,9 @@ from enquiries import views as enquiries
 
 urlpatterns = [
 
-   	path('send_enquire/<int:user_id>/<int:house_id>',
-         enquiries.send_enquire, name="send_enquire"),
-         
-         
-         
-        path('send_contact_message/',
+   	path('send_enquire_message/<int:user_id>/<int:house_id>',
+         enquiries.send_enquire_message, name="send_enquire_message"),
+    path('send_contact_message/',
          enquiries.send_contact_message, name="send_contact_message"),
    	path('get_messages/', enquiries.get_messages, name="get_messages"),
    	path('toggle_read/<int:user_id>/<int:conversation_member>/<int:house_id>',

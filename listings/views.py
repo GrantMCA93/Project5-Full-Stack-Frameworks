@@ -146,21 +146,7 @@ def pay_fee(request, user_id, house_id):
 				args = {
 					'house_id': house_data.id
 				}
-				try:
-					user = User.objects.get(pk=int(request.session['_auth_user_id']))
-					params = {
-						"body": "Thank you",
-						"to": [user.email],
-						"user": user,
-						"house": house_data,
-						"file_name": f"{house_data.id}",
-					}
-					
-					messages.success(request, "Invoice has been emailed to you")
-					return redirect(reverse("house", kwargs={'house_id': house_data.id}))
-				except:
-					messages.error(request, "We could not email you invoice...")
-					return redirect(reverse("house", kwargs={'house_id': house_data.id}))
+				
 			else:
 				messages.error(request, "Unable to take payment")
 
@@ -180,7 +166,7 @@ def pay_fee(request, user_id, house_id):
 
 
 @login_required
-def edit_house(request, user_id, house_id):
+def edithouse(request, user_id, house_id):
     """
         Main route for editing house listing
         """
@@ -189,13 +175,13 @@ def edit_house(request, user_id, house_id):
         return redirect('index')
     house_data = get_object_or_404(Listing, pk=house_id)
     if request.method == "POST":
-        edit_house_form = EditListingForm(
+        edithouse_form = EditListingForm(
             request.POST, request.FILES, instance=house_data)
-        if edit_house_form.is_valid():
+        if edithouse_form.is_valid():
             if Listing.objects.filter(zipcode=house_data.zipcode).exclude(seller_id=user_id):
                 messages.error(request, "That zipcode is in use already!")
             else:
-                edit_house_form.save()
+                edithouse_form.save()
                 messages.success(request, "Successfully updated your listing!")
                 return redirect(reverse("house", kwargs={'house_id': house_data.id}))
     house_data = house_data.__dict__
@@ -204,11 +190,11 @@ def edit_house(request, user_id, house_id):
         'house': house_data
     }
 
-    return render(request, "edit_house.html", args)
+    return render(request, "edithouse.html", args)
 
 
 @login_required
-def delete_house(request, user_id, house_id):
+def deletehouse(request, user_id, house_id):
     """
         Main route to delete listing
         """
@@ -274,44 +260,5 @@ def search(request):
         'base': p_base
     }
     return render(request, "search.html", args)
-
-
-def search_by_links(request, key):
-    """ 
-    Route to let user to search by clicking on links in description
-    """
-
-    listings = Listing.objects.all().filter(
-        is_published=True).order_by(f'-{key}')
-
-    paginator = Paginator(listings, 9)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
-
-    args = {
-        "listings": paged_listings,
-        "key": key
-    }
-    return render(request, "houses.html", args)
-
-
-def search_by_user(request, user_id):
-    """ 
-    Route to let user to search by clicking on links in description
-    """
-
-    listings = Listing.objects.all().filter(
-        is_published=True, seller=user_id).order_by('-list_date')
-
-    paginator = Paginator(listings, 9)
-    page = request.GET.get('page')
-    paged_listings = paginator.get_page(page)
-
-    args = {
-        "listings": paged_listings
-    }
-    return render(request, "houses.html", args)
-
-
 
 

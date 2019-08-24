@@ -1,20 +1,15 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
+from django.core.mail import EmailMultiAlternatives
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
-from .forms import UserLoginForm, UserRegistrationForm
-from django.template.context_processors import csrf
-from django.conf import settings
-from django.core.paginator import Paginator
+from django.contrib.auth.models import User
+from listings.models import Listing
 from accounts.models import UserProfile
 from django.contrib.auth.decorators import login_required
 from django import forms
 from .forms import UserProfileForm, UserLoginForm, EditProfileForm, EditUserForm
-from enquiries.forms import EnquiryForm
-from listings.models import Listing
-from listings.forms import AddListingForm, PayFeeForm, EditListingForm
-from django.contrib.auth.models import User
-import stripe
 
-stripe.api_key = settings.STRIPE_SECRET
+
+
 
 @login_required
 def logout(request):

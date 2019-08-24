@@ -12,7 +12,7 @@ from listings.views import house
 
 
 @login_required
-def send_enquire(request, user_id, house_id):
+def send_enquire_message(request, user_id, house_id):
     if request.method == 'POST':
         form = EnquiryForm(request.POST)
         if form.is_valid():
@@ -32,7 +32,7 @@ def send_contact_message(request):
         if form.is_valid():
             form.save()
             form = ContactForm()
-            messages.success(request, "Thank you for your message!")
+            messages.success(request, "Thanks for your message!")
             return redirect('/#contact-us')
         else:
         	messages.error(request, form.errors)
@@ -58,7 +58,7 @@ def get_messages(request):
 def delete_message(request, user_id, conversation_member, house_id):
     if request.method == "POST":
         if user_id is not int(request.session['_auth_user_id']):
-            return HttpResponse("You are not allowed to delete this message!")
+            return HttpResponse("This message cannot be deleted!")
         received_id = [x.pk for x in PropertyEnquire.objects.filter(
             to_id=user_id, sender_id=conversation_member, house_id=house_id)]
         sent_id = [x.pk for x in PropertyEnquire.objects.filter(
@@ -77,7 +77,7 @@ def delete_message(request, user_id, conversation_member, house_id):
                     id__in=hidden_for_both).delete()
             return HttpResponse("success")
         else:
-            return HttpResponse("There seems to be a problem updating your message!")
+            return HttpResponse("Apologies there was a problem updating your messages!")
     else:
         return redirect('index')
 
@@ -94,7 +94,7 @@ def toggle_read(request, user_id, conversation_member, house_id):
                 id__in=messages_id).update(new_to=False)
             return HttpResponse("success")
         else:
-            return HttpResponse("There seems to be a problem updating your message!")
+            return HttpResponse("Apologies there was a problem updating your messages!")
     else:
         return redirect('index')
 

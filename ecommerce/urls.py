@@ -20,7 +20,7 @@ from listings import urls as urls_listings
 from enquiries import urls as urls_enquiries
 from pages import urls as urls_pages
 from listings import urls as urls_search
-from accounts import urls as urls_reset
+from accounts import urls_reset as urls_reset_accounts
 
 from django.views import static
 from .settings import MEDIA_ROOT
@@ -34,6 +34,6 @@ urlpatterns = [
     url(r'^listings/', include(urls_listings)),
     url(r'^enquiries/', include(urls_enquiries)),
     url(r'^pages/', include(urls_pages)),
-    url(r'^reset/', include(urls_reset)),
+    url(r'^reset/', include(urls_reset_accounts)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ] 

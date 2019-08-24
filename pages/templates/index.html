@@ -8,40 +8,44 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom/index.css' %}"> {% block head_js %} {% endblock head_js %}
+    <link rel="stylesheet" href="{% static 'css/custom/index.css' %}"> 
+    {% block head_js %} {% endblock head_js %}
     <title>Spanish Homes</title>
 </head>
 
 <body>
-    <div class="background-image" alt="Mansion House">
-     
-        <h1 class="index-page-header">Spanish Homes</h1>
-    </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12" style="padding-right:0px; padding-left:0px;">
         <div class="row">
             <!-- Fixed masthead -->
             {% block nav %}
             <!-- Navigation -->
             {% include "partials/navbar.html" %} {% endblock nav %} {% if messages %}
-            <div class="alert alert-success" style="width: 100%;">
+            <div class="alert alert-success" style="width: 100%; margin-top:-24px;">
                 <div class="messages">
                     {% for message in messages %} {{ message }} {% endfor %}
                 </div>
             </div>
-            {% endif %} {% block content %} {% endblock %} {% include "partials/footer.html" %}
+            {% endif %} {% block content %} {% endblock %} 
+                    <div class="background-image" alt="Mansion House">
+        <h1 class="index-page-header">Spanish Homes</h1>
+    </div>
+            
+            {% include "partials/footer.html" %}
 
             <!-- Modals -->
             {% if user.is_authenticated %}
             <!-- User messages modal -->
             {% include "partials/modals/confirm-log-out.html" %}
             {% include "partials/modals/_user_messages_modal.html" %}            
-            {% endif %} {% block modals %} {% endblock modals %}
+            {% endif %}
+            {% block modals %}
+            {% endblock modals %}
         </div>
     </div>
-
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
