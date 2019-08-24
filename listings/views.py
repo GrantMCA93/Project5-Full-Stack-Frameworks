@@ -222,7 +222,6 @@ def search(request):
         keywords = request.GET['keywords']
         if keywords:
             listings = listings.filter(description__icontains=keywords)
-            p_base = p_base + f'keywords={keywords}&'
 
     if 'city' in request.GET:
         city = request.GET['city']
