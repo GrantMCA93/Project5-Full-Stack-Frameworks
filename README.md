@@ -42,27 +42,21 @@ Here is a list of other house listing websites i viewing when designing this web
 
 #Technologies Used
 
-1. 	Bootstrap ( https://getbootstrap.com/ ) 	Bootstrap was used to mobile-first design of the website.	
-2. JQuery (https://jquery.com/ ) 	JQuery is used to provide DOM manipulation.
+1. 	Bootstrap4.0 ( https://getbootstrap.com/ ) 	Bootstrap was used to mobile-first design layout and style the website.	
+2. JQuery (https://jquery.com/ ) 	JQuery is used to provide DOM manipulation to send requests to server
 3. Python (https://www.python.org/ ) Python is used to automate sprecific tasks within the project.
 4. Json (https://www.json.org/) Json is used for transmitting data between the server and webb application. 
 5. Heroku ( https://www.heroku.com/home ) Heroku is used to Host the website.
-
+6. Font-awesome 4.7 used for website icons
+7. Stripe Used for the fake websites (fake) payments
+8. JQ cookie file (/static/js/vendor/jquery.cookie.js) recieves csrf_token from session
+9. Django is used on create the project
 
 #Testing
 I’ve tested the code in chrome, Firefox, Microsoft edge browser and safari as well as the mobile versions of these browsers. I used W3C for CSS https://jigsaw.w3.org/css-validator/and HTML https://validator.w3.org/ to remove errors.
+The other elements of the project including the messaging serving, listing of houses and email contact page i've extensively tested myself for errors.
+The listings pages  and contact pages have been tested to make sure the required fields need to be fulfilled for listings to be sumitted and for emails to send.
 
-
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 #Deployment
 This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
@@ -76,12 +70,9 @@ The projects is hosted on Github pages, Heroku
 
 #Credits
 
-##Content
-The text for section Y was copied from the Wikipedia article Z
-
 ##Media
-The photos used in this site were obtained from ...
+All the images used on this website were found on google, all the images licenses are Free to modify, share and use commerically.
 
 ##Acknowledgements
 Mentor:- Chris Zielinski  ckz8780@gmail.com 
-insperation for the project was taken from - https://github.com/MiroslavSvec/project-5
+TO help me with the coding of thsi webiste i used this similar project - https://github.com/MiroslavSvec/project-5 
